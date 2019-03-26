@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="_images_es6_features_everyone_tutorial/es6_logo_2.jpg" alt="es6 logo" title="es6 logo" width="200" />
+    <img src="_images_es6_features_tutorial/es6_logo_2.jpg" alt="es6 logo" title="es6 logo" width="200" />
 </p>
 
 JavaScript ES6-ECMAScript 6-ECMAScript 2015 Features for everyone
@@ -16,14 +16,14 @@ Topics include
 3. [Transpiling ES6-ECMAScript 6](#section-3-transpiling-es6-ecmascript-6)
 4. [New Variables—Creation Updating and Scoping](#section-4-new-variables-creation-updating-and-scoping)
 5. [Function Improvements objects](#section-5-function-improvements-objects)
-6. [Extended Parameter Handling](#section-6-Extended-Parameter-Handling)
-7. [Template Strings Literals](#section-7-Template-Strings-Literals)
-8. [Destructuring Assignment](#section-8-Destructuring-Assignment)
-9. [Iterables and Iterators, Looping](#section-9-Iterables-and-Iterators,-Looping)
-10. [Classes](#section-10-Classes)
-11. [Generators](#section-11-Generators)
-12. [Sets and WeakSets](#section-12-Sets-and-WeakSets)
-13. [Map and Weak Map](#section-13-Map-and-Weak-Map)
+6. [Extended Parameter Handling](#section-6-extended-parameter-handling)
+7. [Template Strings Literals](#section-7-template-strings-literals)
+8. [Destructuring Assignment](#section-8-destructuring-assignment)
+9. [Iterables and Iterators, Looping](#section-9-iterables-and-iterators-looping)
+10. [Classes](#section-10-classes)
+11. [Generators](#section-11-generators)
+12. [Sets and WeakSets](#section-12-sets-and-weaksets)
+13. [Map and Weak Map](#section-13-map-and-weak-map)
 14. [Symbols](#section-14-symbols)
 15. [Modules](#section-15-modules)
 16. [Whats Next Step?](#section-16-whats-next-step)
@@ -65,7 +65,7 @@ Section 8. Destructuring Assignment
 =====================
 
 
-Section 9. Iterables and Iterators, Looping
+Section 9. Iterables and Iterators Looping
 =====================
 
 Section 10. Classes
