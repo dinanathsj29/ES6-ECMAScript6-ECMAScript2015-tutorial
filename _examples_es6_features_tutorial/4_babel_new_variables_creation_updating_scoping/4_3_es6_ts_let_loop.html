@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4_3_es6_ts_let_loop</title>
+
+  <!-- internal style -->
+  <style>
+    /* css selector: { property:value; } */
+    body {
+      font-family: arial;
+    }
+
+    h2 {
+      clear: both;
+    }
+
+    section {
+      height: 100px;
+      margin-bottom: 30px;
+    }
+
+    .var-section>div,
+    .let-section>div {
+      height: 100px;
+      width: 100px;
+      background-color: #ff4c4c73;
+      float: left;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .let-section>div {
+      background-color: #594cff73;
+    }
+  </style>
+
+  <!-- include babel library to transpile/convert ES6 code to ES5 -->
+  <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+
+  <!-- internal JavaScript - head section -->
+  <script type="text/babel">
+      // Write all JavaScript code here
+
+      // var keyword - functional scope
+      for(var i=0;i<10;i++) {
+        // create a new div element to add dynamically at run time
+        var newDiv1 = document.createElement('div'); 
+        // click event
+        newDiv1.onclick = function() {
+				  alert("VAR - You clicked on a box Num: " + i);
+        };
+
+        // add/append newly created div element to section element in DOM
+        document.getElementsByClassName('var-section')[0].appendChild(newDiv1);
+      }
+
+      // let keyword - block scope
+      for(let i=1;i<=10;i++) {
+        // create a new div element to add dynamically at run time
+        let newDiv2 = document.createElement('div'); 
+        // click event
+        newDiv2.onclick = function() {
+				  alert("LET - You clicked on a box Num: " + i);
+        };
+
+        // add/append newly created div element to section element in DOM
+        document.getElementsByClassName('let-section')[0].appendChild(newDiv2);
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <h1>4. New Variables Creation Updating and Scoping</h1>
+  
+    <h2>4.3. let keyword in loop </h2>
+
+    <h2>Click on a box to continue...</h2>
+
+      <h2>var keyword</h2>
+      <section class="var-section">
+
+      </section>
+
+      <h2>let keyword</h2>
+      <section class="let-section">
+
+      </section>
+    
+    <!-- internal JavaScript - body section -->
+    <script>
+    /* Write all JavaScript code here */
+    
+    </script>
+    
+  </body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4_1_es6_ts_var_hoisting</title>
+
+    <!-- internal style -->
+    <style>
+      /* css selector: { property:value; } */
+      body {
+        font-family: arial;
+      }
+    </style>
+
+    <!-- include babel library to transpile/convert ES6 code to ES5 -->
+    <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+    
+    <!-- internal JavaScript - head section -->
+    <script type="text/babel">
+      // Write all JavaScript code here
+
+      greetUser1('Dinanath1'); //hoising function declaration will move to top
+
+      function greetUser1(userName1: string) {
+          if (userName1 === 'Dinanath1') {
+              var greetings1 = 'Hello Dinanath, Welcome';
+          } else {
+              var greetings1 = 'Hello Guest';
+          }
+          console.log(greetings1); //var variables available outside as it have functional scope
+          var greetings1: string; //hoisting variable declaration will move to top
+      }
+
+      greetUser1('Dinanath2'); 
+    </script>
+    
+  </head>
+
+  <body>
+
+    <h1>4. New Variables Creation Updating and Scoping</h1>
+    
+    <h2>4.1. variable/function hoising </h2>
+    
+    <!-- internal JavaScript - body section -->
+    <script>
+    /* Write all JavaScript code here */
+    
+    </script>
+    
+  </body>
+
+</html>
