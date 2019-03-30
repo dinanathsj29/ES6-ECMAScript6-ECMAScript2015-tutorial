@@ -8,7 +8,7 @@ JavaScript ES6-ECMAScript 6-ECMAScript 2015 Features for everyone
 
 Prerequisites for current course / What you need to know
 =====================
-`ES6-ECMAScript 6-ECMAScript 2015` introduce us to the newest language features that can be used in JavaScript code. Due to this, I assume you have some working knowledge/understanding of JavaScript. If you haven't, will recommend watching [JavaScript Essentials Tutorial for beginners](https://github.com/dinanathsj29/javascript-beginners-tutorial). Also, some basic knowledge of HyperText Markup Language (HTML) [HTML5 Essentials](https://github.com/dinanathsj29/html5-essentials-tutorial) and [CSS3 Fundamentals](https://github.com/dinanathsj29/css3-fundamentals-tutorial) will likely be useful in your work with ES6. Finally, you will be using a bit of Angular.js, React.js and Node.js but nothing that requires deep/advanced knowledge.
+`ES6-ECMAScript 6-ECMAScript 2015` introduces us to the newest language features that can be used in JavaScript code. Due to this, I assume you have some working knowledge/understanding of JavaScript. If you haven't, will recommend watching [JavaScript Essentials Tutorial for beginners](https://github.com/dinanathsj29/javascript-beginners-tutorial). Also, some basic knowledge of HyperText Markup Language (HTML) [HTML5 Essentials](https://github.com/dinanathsj29/html5-essentials-tutorial) and [CSS3 Fundamentals](https://github.com/dinanathsj29/css3-fundamentals-tutorial) will likely be useful in your work with ES6. Finally, you will be using a bit of Angular.js, React.js, and Node.js but nothing that requires deep/advanced knowledge.
 
 Topics include
 ===================== 
@@ -33,13 +33,13 @@ Section 1. Course Introduction
 =====================
 1.1. Welcome
 ---------------------
-Hi All, I'm **`Dinanath Jayaswal, Senior UI/Web Developer and Adobe Certified Expert Professional`**, I wanna welcome you to `ES6-ECMAScript 6-ECMAScript 2015`. In this course/tutorial will go over how to start with using latest ES6 features right with bang. Will dive into the specifics of ES6 and new features it includes. We'll look at new keywords, syntax and operators that can be used to simplify code structure. At the end we'll take a look at class, module syntax in ES6 and how that can be used immediately with very popular JavaScript library/frameworks like Angular, React, Node etc. Let us explore and learn some pretty exciting stuff so let's go ahead and get started with `ES6-ECMAScript 6-ECMAScript 2015`.
+Hi All, I'm **`Dinanath Jayaswal, Senior UI/Web Developer and Adobe Certified Expert Professional`**, I wanna welcome you to `ES6-ECMAScript 6-ECMAScript 2015`. In this course/tutorial will go over how to start with using the latest ES6 features right with the bang. Will dive into the specifics of ES6 and new features it includes. We'll look at new keywords, syntax, and operators that can be used to simplify code structure. At the end we'll take a look at class, module syntax in ES6 and how that can be used immediately with very popular JavaScript library/frameworks like Angular, React, Node, etc. Let us explore and learn some pretty exciting stuff so let's go ahead and get started with `ES6-ECMAScript 6-ECMAScript 2015`.
 
 `ES6-ECMAScript 6-ECMAScript 2015` will introduce us to the newest language features that can be used in JavaScript code - The Modern JavaScript.
 
 1.2. Who is this for?
 ---------------------
-This course is for anyone and everyone, Almost everyone! who is interested in boost skills and further career - by learning new latest programming/coding standards/features/syntaxes/keywords introduced in latest version of JavaScript to become hitech developer.
+This course is for anyone and everyone, Almost everyone! who is interested in boost skills and further career - by learning new latest programming/coding standards/features/syntaxes/keywords introduced in the latest version of JavaScript to become a hi-tech developer.
 
 Section 2. Introduction to ES6-ECMAScript 6
 =====================
@@ -53,13 +53,13 @@ Section 2. Introduction to ES6-ECMAScript 6
 ---------------------
 - `1995` - JavaScript invented/created by `“Brandan Eich”` at `Netscape` originally named as `"LiveScript"`
 - `1996` - `Microsoft` has developed new version of JavaScript named as `"JScript"` for `IE-3`
-- Due to different standards/version on different browser there was an urgent need to standarized language
-- `ECMA (European Computer Manufacturers Association)` is the governing body which provide standardization/specification or JavaScript language implementation 
+- Due to different standards/version on a different browser, there was an urgent need to standardized language
+- `ECMA (European Computer Manufacturers Association)` is the governing body which provides standardization/specification or JavaScript language implementation 
 - `1997` - ECMAScript 1 released (JavaScript Submitted to `ECMAScript`)
 - `2009` - ECMAScript 5 released (`for...each, array method, map, filter`)
 - `2015` - ECMAScript 6 released (tones of advanced awesome features - `let, const, function default parameters, arrow function, classes, template string, new array/object methods`)
-  - ES6-ECMAScript 6-ECMAScript 2015 is evolution of ES5...Future of JavaScript
-  - ES6 adds tremendous amount of features to JavaScript such as let, constants, classes, Fat Arrow functions etc.
+  - ES6-ECMAScript 6-ECMAScript 2015 is the evolution of ES5...Future of JavaScript
+  - ES6 adds a tremendous amount of features to JavaScript such as let, constants, classes, Fat Arrow functions, etc.
   - `ES6-ECMAScript 6-ECMAScript 2015 = ES5 + New Awesome Features`
 
 2.3. Typescript
@@ -67,7 +67,7 @@ Section 2. Introduction to ES6-ECMAScript 6
 - Typescript is Open source/free development language
 - Developed and maintained by Microsoft
 - Typed superset of JavaScript which Compiles to plain JavaScript
-- It consist of variables Data Types string, number, boolean etc. but its optional
+- It consists of variables Data Types string, number, boolean, etc. but it is optional
 - One can write safer/meaningful/easily maintainable/scalable code
 
 2.4. ES6 Browser Support
@@ -82,10 +82,10 @@ Check current browser support and compatibility status for ES6:
 
 2.5. Using ES6/ECMAScript 6 now
 ---------------------
-- If browser does not support all of the ES6/ECMAScript 6 features than alternatively:
+- If the browser does not support all of the ES6/ECMAScript 6 features than alternatively:
   - we can use the `online transpilers (source-to-source compilers)` free of cost which `transpile our current ES6 code to ES5` for better browser compatibility without leaving out the benefits of enhanced syntax and capabilities of ES6
 - Transpiling is the process of taking `ES6 code and converting it into ES5`, so browsers can read it 
-- Transpiling process is also used for languages like `CoffeeScript and TypeScript` to convert code into JavaScript
+- The transpiling process is also used for languages like `CoffeeScript and TypeScript` to convert code into JavaScript
 - There are many different transpilers/transpiling tools available, the most popular are: 
   - [Typescript](https://www.typescriptlang.org/)
   - [Babel](https://babeljs.io/), 
@@ -104,17 +104,17 @@ Section 3. Transpiling ES6-ECMAScript 6
 
 3.2. Babel.js (https://babeljs.io/) - working with Babel
 ---------------------
-- Babel is one of the most popular tools for trasnpiling ES6 code and get ES5 code 
+- Babel is one of the most popular tools for trasnpiling ES6 code and gets ES5 code 
 - Babel was `created by Sebastian McKenzie` an Australian developer at Facebook
 - `ReactJS the UI library created by Facebook uses Babel` as a preferred tool for transpiling the ES6 features back into ES5 JavaScript
 
-3.3. Babel inbrowser transpiling
+3.3. Babel in-browser transpiling
 ---------------------
-- In real project its advisable `not to use In Browser Transformer`, it will force browser to convert all of the ES6 to ES5 at run time, which may make our projects run much slower
-- For the purpose of demo create a .html file and under script tag use a ES6 function syntax to pass default parameters or any other ES6 feature. If brower support ES6 feature you will get proper output else will get error `UnCaught SyntaxError: Unexpected token = `
-- To get rid of ES6 non support error in browser, download and use/include Babel transpiler script library like: `<script src="babel.js url">` and finally register/make it official with `<script type="text/babel">`
+- In real project it's advisable `not to use In Browser Transformer`, it will force the browser to convert all of the ES6 to ES5 at run time, which may make our projects run much slower
+- For the purpose of demo create a .html file and under script tag use an ES6 function syntax to pass default parameters or any other ES6 feature. If browser support ES6 feature you will get proper output else will get error `UnCaught SyntaxError: Unexpected token = `
+- To get rid of ES6 non/not support error in browser, download and use/include Babel transpiler script library like: `<script src="babel.js URL">` and finally register/make it official with `<script type="text/babel">`
 
-> **Note**: Now a days majority of browser supports most of ES6 features so accordingly as per needs/requirements include Babel or other transpiler in html file.
+> **Note**: Now a days majority of browser supports most of the ES6 features so accordingly as per needs/requirements include Babel or other transpilers in HTML file.
 
 > **Syntax & Example**:
 ```html
@@ -146,30 +146,30 @@ Section 3. Transpiling ES6-ECMAScript 6
 </html>
 ```
 
-3.4. Transpiling ES6 with babel and babelnode
+3.4. Transpiling ES6 with babel and babel node
 ---------------------
-Alternatively install babel with nodejs ie npm package and use respective commands at CLI to transpile ES6 files into ES5.
+Alternatively, install babel with nodejs ie npm package and use respective commands at CLI to transpile ES6 files into ES5.
 
 3.5. Transpiling ES6 with Webpack
 ---------------------
 - https://webpack.github.io/
 - https://webpack.js.org/
-- For the larger scale applications its advisable to use build tool like `webpack` which helps to automate process like transpiling, less/sass conversion, script/image/css bundeling and more
+- For the larger scale applications its advisable to use a build tool like `webpack` which helps to automate the process like transpiling, less/sass conversion, script/image/CSS bundling and more
 - Webpack is a module bundler (bundle your assets, scripts, images, styles)
 - Webpack takes modules with dependencies and emits static assets representing those modules
-- Create a package.json file (contains module/depedency, documentation, project information) with command: `npm init`
-- Install webpack with node/npm with command: `npm install -g webpack`
+- Create a package.json file (contains module/dependency, documentation, project information) with the command: `npm init`
+- Install webpack with node/npm with the command: `npm install -g webpack`
 - Install babel-loader (helps to convert ES6 to ES5) node/npm with command: `npm install --save-dev babel-loader`
 - Create a `webpack.config.js`
 - Run command: `webpack`
-- In .html file with script src use a path of newly created `bundle.js` file
+- In the .html file with script src use a path of newly created `bundle.js` file
 
 3.6. Typescript - Working and Transpiling with Typescript
 ---------------------
 - Download and Install node (node comes with npm) (website: https://nodejs.org/en)
 - After installation check version of node and npm by command: `node -v / npm -v`
 - Install a `Text Editor` to write a code like `VS code`, `Sublime Text`, `Adobe Brackets` or any one of your choice
-- Install a `transpiler` like `typescript` globally to transpile/convert a code into plain JavaScript, by using command: `npm install typescript -g`
+- Install a `transpiler` like `typescript` globally to transpile/convert a code into plain JavaScript, by using the command: `npm install typescript -g`
 - In VS Code editor configure typescript: Press `CTRL+SHIFT+B` -> Choose Task Runner - > Typescript Watch Mode -> it will create `task.json`
 
 <p>
@@ -205,7 +205,7 @@ Alternatively install babel with nodejs ie npm package and use respective comman
 }
 ```
 
-- Create typescript configuration (`tsconfig.json` file) by using command: `tsc --init`
+- Create a typescript configuration (`tsconfig.json` file) by using the command: `tsc --init`
   - include/modify some settings in tsconfig.json: 
     - `"sourceMap": true,` - map files helps to debug (.ts to .js mapping)
     - `"outDir": "./scripts",` - typescript transpiler will generate/organize all .js files into scripts folder
@@ -235,7 +235,7 @@ Alternatively install babel with nodejs ie npm package and use respective comman
 
 > **Syntax & Example**: `Typescript 3_6_es6_ts_transpiling.ts`
 ```typescript
-// by default typescript consi: stringder all files in a folder as a module, so variables defined in one file will be checked on the fly and throws error: Cannot redeclare block-scoped variable - to solve issue use export {}
+// by default typescript consider all files in a folder as a module, so variables defined in one file will be checked on the fly and throws an error: Cannot redeclare block-scoped variable - to solve issue use export {}
 
 // export {};
 
@@ -279,7 +279,7 @@ showFullName();
 //# sourceMappingURL=3_6_es6_ts_transpiling.js.map
 ```
 
-- create an `index.html` file and include newly created .js file with script tag to check and verify output
+- create an `index.html` file and include newly created .js file with script tag to check and verify the output
 
 > **Syntax & Example**: index.html
 ```html
@@ -315,9 +315,9 @@ showFullName();
 </html>
 ```
 
-- To Run a to run the app from virtual local web server install npm utilities like `serve, http, lite-server, static` etc 
+- To Run a to run the app from virtual local web server install npm utilities like `serve, HTTP, lite-server, static` etc 
   - command: `npm install lite-server -g`
-  - start server with command: `lite-server` and check output in browser
+  - start server with the command: `lite-server` and check the output in the browser
 
 <p>
   <figure>
@@ -328,7 +328,7 @@ showFullName();
 
 3.7. ScratchJS - ES6 to ES5 code transpile/conversion
 ---------------------
-- Typescript installation/transpilation process is pretty lengthy and tedius
+- Typescript installation/transpilation process is pretty lengthy and tedious
 - Alternatively, Simply we can add/install a `Google Chrome Extention` named `Scratch JS`, an add-on for DevTools which integrates both the Traceur and Babel transpilers, allowing us to test out the new JS features coming with ES6/ES2015
 - `Scratch JS` also supports `CoffeeScript`, `LiveScript` and more compile-to-JS languages will be added soon
 - To install `Scratch JS` as a `Google Chrome Extention`:
@@ -351,7 +351,7 @@ showFullName();
   </figure>
 </p>
 
-- Once extention installed properly, open developer tool (F12, Fn12, Right Click on web page Inspect), click on ScratchJS - at left side type ES6 code and right side check ES5 output
+- Once extension installed properly, open developer tool (F12, Fn12, Right Click on web page Inspect), click on ScratchJS - at left side type ES6 code and right side check ES5 output
 
 <p>
   <figure>
@@ -362,6 +362,404 @@ showFullName();
 
 Section 4. New Variables Creation Updating and Scoping
 =====================
+4.1. Purpose/challenges in ES5 (Why ES6)
+---------------------
+- `Hoisting` - Behind the scene JavaScript declare variables at the top
+- `Functional scope` - `var` keyword got functional scope (accessible through-out the function body), at the same time var keyword variables also get hoisted
+- `Let keyword block scope` - let keyword variables exist only inside `block { }`scope, but never hoisted
+
+> **Syntax & Example**: `Typescript 4_1_es6_ts_var_hoisting.ts`
+```typescript
+// by default typescript consider all files in a folder as a module, so variables defined in one file will be checked on the fly and throws an error: Cannot redeclare block-scoped variable - to solve issue use export {}
+
+// export {};
+
+greetUser1('Dinanath1'); //hoising funciton declaration will move to top
+
+function greetUser1(userName1: string) {
+    if (userName1 === 'Dinanath1') {
+        var greetings1 = 'Hello Dinanath, Welcome';
+    } else {
+        var greetings1 = 'Hello Guest';
+    }
+    console.log(greetings1); //var variables available outside as it have functional scope
+    var greetings1: string; //hoisting variable declaration will move to top
+}
+
+greetUser1('Dinanath2'); 
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 4_1_es6_ts_var_hoisting.js`
+```javascript
+"use strict";
+// by default typescript consider all files in a folder as a module, so variables defined in one file will be checked on the fly and throws error: Cannot redeclare block-scoped variable - to solve issue use export {}
+// export {};
+greetUser1('Dinanath1');//hoising funciton declaration will move to top
+function greetUser1(userName1) {
+    if (userName1 === 'Dinanath1') {
+        var greetings1 = 'Hello Dinanath, Welcome';
+    }
+    else {
+        var greetings1 = 'Hello Guest';
+    }
+    console.log(greetings1); //var variables available outside as it have functional scope
+    var greetings1; //hoisting variable declaration will move to top
+}
+greetUser1('Dinanath2'); 
+//# sourceMappingURL=4_1_es6_ts_var_hoisting.js.map
+```
+
+4.2. let keyword
+---------------------
+- To `deal with scope` in JavaScript we have new keyword named `let` used to declare variables
+- We use the let keyword to `create block scoping` in JavaScript in locations where we weren't able to do so before 
+- `Let keyword block scope` - let keyword variables exist only inside `block { }`scope
+- let keyword variables cannot be used before declaration (`never hoisted`)
+- let keyword variables `cannot be re-declared`
+
+> **Syntax & Example**: `Typescript 4_2_es6_ts_let.ts`
+```typescript
+// by default typescript consider all files in a folder as a module, so variables defined in one file will be checked on the fly and throws an error: Cannot redeclare block-scoped variable - to solve issue use export {}
+
+// export {};
+
+function greetUser1(userName1: string) {
+    if (userName1 === 'Dinanath1') {
+        var greetings1 = 'Hello Dinanath, Welcome';
+    } else {
+        var greetings1 = 'Hello Guest';
+    }
+    console.log(greetings1); //var variables available outside as it have functional scope
+    var greetings1: string; //hoisting variable declaration will move to top
+}
+
+greetUser1('Dinanath1');
+
+// ------------------------------
+
+/*
+function greetUser2(userName2:string){
+    if(userName2 === 'Dinanath2'){
+        let greetings2 = 'Hello Dinanath2';
+    }else{
+        let greetings2 = 'Hello Guest';
+    }
+    console.log(greetings2); //error - let variables not available out side block
+}
+*/
+
+function greetUser2(userName2: string) {
+    let greetings2
+    if (userName2 === 'Dinanath2') {
+        greetings2 = 'Hello Dinanath2';
+    } else {
+        greetings2 = 'Hello Guest';
+    }
+    console.log(greetings2);
+}
+
+greetUser2('Dinanath2');
+
+// ------------------------------ 
+
+var num1: number = 10;
+var num2: number = 20;
+
+if (num1 === 10) {
+    var num1: number = 100;
+    let num2: number = 200;
+    console.log('inside num1  : ' + num1);
+    console.log('inside num2  : ' + num2);
+}
+
+console.log('outside num1  : ' + num1);
+console.log('outside num2  : ' + num2);
+
+// ------------------------------
+
+// let variables not hoisted
+/* function greetUser3(userName3:string){
+    if(userName3 === 'Dinanath3'){
+        greetings3 = 'Hello Dinanath3'; //error - let variables not hoisted
+    }else{
+        greetings3 = 'Hello Guest'; //error - let variables not hoisted
+    }
+    console.log(greetings3); //error - let variables not hoisted
+    let greetings3;
+} */
+
+// ------------------------------
+
+// let variables not be re-declared
+
+// var firstName: string = 'Dinanath'; //error
+// var firstName: string = 'DJ'; //error
+
+let fName;
+// let fName; //cannot redeclare block-scoped variable 'fName'
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 4_2_es6_ts_let.js`
+```javascript
+"use strict";
+// by default typescript consider all files in a folder as a module, so variables defined in one file will be checked on the fly and throws error: Cannot redeclare block-scoped variable - to solve issue use export {}
+// export {};
+function greetUser1(userName1) {
+    if (userName1 === 'Dinanath1') {
+        var greetings1 = 'Hello Dinanath, Welcome';
+    }
+    else {
+        var greetings1 = 'Hello Guest';
+    }
+    console.log(greetings1); //var variables available outside as it have functional scope
+    var greetings1; //hoisting variable declaration will move to top
+}
+greetUser1('Dinanath1');
+// ------------------------------
+/*
+function greetUser2(userName2:string){
+    if(userName2 === 'Dinanath2'){
+        let greetings2 = 'Hello Dinanath2';
+    }else{
+        let greetings2 = 'Hello Guest';
+    }
+    console.log(greetings2); //error - let variables not available out side block
+}
+*/
+function greetUser2(userName2) {
+    var greetings2;
+    if (userName2 === 'Dinanath2') {
+        greetings2 = 'Hello Dinanath2';
+    }
+    else {
+        greetings2 = 'Hello Guest';
+    }
+    console.log(greetings2);
+}
+greetUser2('Dinanath2');
+// ------------------------------ 
+var num1 = 10;
+var num2 = 20;
+if (num1 === 10) {
+    var num1 = 100;
+    var num2_1 = 200;
+    console.log('inside num1  : ' + num1);
+    console.log('inside num2  : ' + num2_1);
+}
+console.log('outside num1  : ' + num1);
+console.log('outside num2  : ' + num2);
+// ------------------------------
+// let variables not hoisted
+/* function greetUser3(userName3:string){
+    if(userName3 === 'Dinanath3'){
+        greetings3 = 'Hello Dinanath3'; //error - let variables not hoisted
+    }else{
+        greetings3 = 'Hello Guest'; //error - let variables not hoisted
+    }
+    console.log(greetings3); //error - let variables not hoisted
+    let greetings3;
+} */
+// ------------------------------
+// let variables not be re-declared
+// var firstName: string = 'Dinanath'; //error
+// var firstName: string = 'DJ'; //error
+var fName;
+// let fName; //cannot redeclare block-scoped variable 'fName'
+//# sourceMappingURL=4_2_es6_ts_let.js.map
+```
+
+4.3. let in for loop
+---------------------
+- While dealing with `closures and loops` its advisable to `use let` instead of `var`
+
+> **Syntax & Example**: `Typescript 4_3_es6_ts_let_loop.ts`
+```typescript
+// export {};
+
+for (var i = 1; i <= 5; i++) {
+    setTimeout(() => {
+        console.log('var based for loop', i); //6
+    }, 1000);
+}
+
+// ------------------------------
+
+for (let j = 1; j <= 5; j++) {
+    setTimeout(() => {
+        console.log('let based for loop', j); //1,2,3,4,5
+    }, 1000);
+}
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 4_3_es6_ts_let_loop.js`
+```javascript
+"use strict";
+// export {};
+for (var i = 1; i <= 5; i++) {
+    setTimeout(function () {
+        console.log('var based for loop', i); //6
+    }, 1000);
+}
+var _loop_1 = function (j) {
+    setTimeout(function () {
+        console.log('let based for loop', j); //1,2,3,4,5
+    }, 1000);
+};
+// ------------------------------
+for (var j = 1; j <= 5; j++) {
+    _loop_1(j);
+}
+//# sourceMappingURL=4_3_es6_ts_let_loop.js.map
+```
+
+4.4. const keyword (also known as `"immutable variables"`),
+---------------------
+- Like the let keyword, we can also use `const` an alternative for declaring variables
+- const is short for `constant` allows us to set constant variables which `shouldn't be reassigned`
+- We can not change the value of const variable, so use const to define `fixed set of values` also to `protect the values` of certain variables
+- Creating/Using an existing const variable again or re-assigning value to const variable generates `TypeError, SyntaxError`
+- const keyword is used to define/create `variable with read-only` constants
+- const must have some value `while declaration/initialized`
+- const value is fixed, `not to change/re-assigned` in future
+- const is also having `block scope`
+- the const value `never hoisted`
+- However, we can still change object properties or array elements
+
+### 4.4.1 const keyword variable
+
+> **Syntax & Example**: `Typescript 4_4_1_ts_const_var.ts`
+```typescript
+// export {};
+
+let firstName
+
+//const firstName1; //error - const must have some value `while declaration/initialized`
+const lastName = 'Jayaswal';
+// const lastName //error - const value is fixed, `not to change/re-assigned` in future
+
+console.log(firstName);
+console.log(lastName);
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 4_4_1_ts_const_var.js`
+```javascript
+"use strict";
+// export {};
+var firstName;
+//const firstName1; //error - const must have some value `while declaration/initialized`
+var lastName = 'Jayaswal';
+// const lastName //error - const value is fixed, `not to change/re-assigned` in future
+console.log(firstName);
+console.log(lastName);
+//# sourceMappingURL=4_4_1_ts_const_var.js.map
+```
+
+### 4.4.2 const with array
+
+> **Syntax & Example**: `Typescript 4_4_2_ts_const_array.ts`
+```typescript
+// export {};
+
+const PersonArray = ['Dinanath', 'Jayaswal', 35, 'Male', true];
+
+console.log(PersonArray[0]);
+
+// we can re-assign value
+PersonArray[0] = 'Vedika';
+
+console.log(PersonArray[0]);
+
+//error - we cannot re-assign new array
+/* PersonArray = {
+
+}*/
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 4_4_2_ts_const_array.js`
+```javascript
+"use strict";
+// export {};
+var PersonArray = ['Dinanath', 'Jayaswal', 35, 'Male', true];
+console.log(PersonArray[0]);
+// we can re-assign value
+PersonArray[0] = 'Vedika';
+console.log(PersonArray[0]);
+//error - we cannot re-assign new array
+/* PersonArray = {
+
+}*/ 
+//# sourceMappingURL=4_4_2_ts_const_array.js.map
+```
+
+### 4.4.3 const with object
+
+> **Syntax & Example**: `Typescript 4_4_3_ts_const_object.ts`
+```typescript
+// export {};
+
+const Person = {
+  firstName: 'Dinanath',
+  lastName: 'Jayaswal',
+  age: 35,
+  gender: 'Male',
+  isMale: true
+}
+
+console.log(Person.firstName);
+
+// we can re-assign value
+Person.firstName = 'Vedika';
+
+console.log(Person.firstName);
+
+//error - we cannot re-assign new object
+/* Person = {
+
+} */
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 4_4_3_ts_const_object.js`
+```javascript
+"use strict";
+// export {};
+var Person = {
+    firstName: 'Dinanath',
+    lastName: 'Jayaswal',
+    age: 35,
+    gender: 'Male',
+    isMale: true
+};
+console.log(Person.firstName);
+// we can re-assign value
+Person.firstName = 'Vedika';
+console.log(Person.firstName);
+//error - we cannot re-assign new object
+/* Person = {
+
+} */ 
+//# sourceMappingURL=4_4_3_ts_const_object.js.map
+```
+
+4.5 let vs const
+---------------------
+- If variables have `one time assignments (fixed value, not changed in future)` use const
+- If value re-assignments/`value updation` requires use `let`
+- Const variables need value at the time of definition; `const name='Dinanath';`
+- Let variables can be defined/initialized with empty value; `let name;`
+- Const variables are `immutable, not changeable ` variables
+- Let variables are `mutable, can be changed or re-assigned`
 
 
 Section 5. Function Improvements objects
