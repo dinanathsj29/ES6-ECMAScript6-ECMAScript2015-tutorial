@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>5_2_es6_ts_fat_arrow_function_this_scope</title>
+
+    <!-- internal style -->
+    <style>
+      /* css selector: { property:value; } */
+      body {
+        font-family: arial;
+      }
+    </style>
+
+    <!-- include babel library to transpile/convert ES6 code to ES5 -->
+    <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+    
+    <!-- internal JavaScript - head section -->
+    <script type="text/babel">
+      // Write all JavaScript code here
+
+      // old function definition
+      var Human1 = {
+        name: 'Dinanath',
+        hobbies: ['Reading', 'Music', 'Cricket', 'Travel'],
+        showHobbies: function() {
+          var name = 'dina1';
+          this.hobbies.forEach(function(hobby){
+          var name = 'dina2';
+            var message = this.name + ' loves to ' + hobby;
+            console.log(message); 
+          });
+        }
+      }
+
+      // Human1.showHobbies(); // Uncaught TypeError: Cannot read property 'name' of undefined
+
+      // console.log('// ------------------------------');
+
+      // old function definition - solution - this
+      var Human2 = {
+        name: 'Dino',
+        hobbies: ['Reading', 'Music', 'Cricket', 'Travel'],
+        showHobbies: function() {
+          var _this = this;
+          this.hobbies.forEach(function(hobby){
+            var message = _this.name + ' likes ' + hobby;
+            console.log(message); 
+          });
+        }
+      }
+
+      Human2.showHobbies();
+
+      // console.log('// ------------------------------');
+
+      // old function definition - solution - bind
+      var Human3 = {
+        name: 'Ambar',
+        hobbies: ['Reading', 'Music', 'Cricket', 'Travel'],
+        showHobbies: function() {
+          this.hobbies.forEach(function(hobby){
+            var message = this.name + ' interested in ' + hobby;
+            console.log(message); 
+          }.bind(this));
+        }
+      }
+
+      Human3.showHobbies();
+
+      // console.log('// ------------------------------');
+
+      // new fat arrow function definition
+      var Human4 = {
+        name: 'Sagar',
+        hobbies: ['Reading', 'Music', 'Cricket', 'Travel'],
+        showHobbies() {
+          this.hobbies.forEach((hobby) => {
+            var message = this.name + ' is busy with  ' + hobby;
+            console.log(message); 
+          });
+        }
+      }
+
+      Human4.showHobbies();
+      
+    </script>
+    
+  </head>
+
+  <body>
+
+    <h1>5. Function Improvements-objects</h1>
+    
+    <h2>5.2. Fat Arrow functions and `this` scope / lexical `this`</h2>
+    
+    <!-- internal JavaScript - body section -->
+    <script>
+    /* Write all JavaScript code here */
+    
+    </script>
+    
+  </body>
+
+</html>

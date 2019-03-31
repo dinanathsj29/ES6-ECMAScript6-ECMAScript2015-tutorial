@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4_4_2_es6_ts_const_var_function</title>
+
+    <!-- internal style -->
+    <style>
+      /* css selector: { property:value; } */
+      body {
+        font-family: arial;
+      }
+    </style>
+
+    <!-- include babel library to transpile/convert ES6 code to ES5 -->
+    <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+    
+    <!-- internal JavaScript - head section -->
+    <script type="text/babel">
+      // Write all JavaScript code here
+
+      // const keyword - block scope
+      function checkTemperature(currentTemp) {
+        const normalTemperature = 20;
+
+        if(normalTemperature > currentTemp ) {
+          return currentTemp + ' is too cold...freezing';
+        } else {
+          return currentTemp + ' is too hot...';
+        }
+      }
+
+      console.log(checkTemperature(10));
+      console.log(checkTemperature(30));
+      console.log(checkTemperature(-6));
+      console.log(checkTemperature(50));
+      
+    </script>
+    
+  </head>
+
+  <body>
+
+    <h1>4. New Variables Creation Updating and Scoping</h1>
+    
+    <h2>4.4.2 const keyword variable with function</h2>
+    
+    <!-- internal JavaScript - body section -->
+    <script>
+    /* Write all JavaScript code here */
+    
+    </script>
+    
+  </body>
+
+</html>

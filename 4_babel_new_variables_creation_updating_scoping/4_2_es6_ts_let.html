@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4_2_es6_ts_let</title>
+
+    <!-- internal style -->
+    <style>
+      /* css selector: { property:value; } */
+      body {
+        font-family: arial;
+      }
+    </style>
+
+    <!-- include babel library to transpile/convert ES6 code to ES5 -->
+    <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+    
+    <!-- internal JavaScript - head section -->
+    <script type="text/babel">
+      // Write all JavaScript code here
+
+      // var keyword - functional scope
+      var num1 = 10;
+      if (num1) {
+        var num1 = 5;
+      }
+
+      console.log(num1); // 5
+
+      // console.log('// ------------------------------');
+
+      // let keyword - block scope
+      var num2 = 20;
+      if (num2) {
+        let num2 = 5;
+      }
+
+      console.log(num2); // 20
+      
+    </script>
+    
+  </head>
+
+  <body>
+
+    <h1>4. New Variables Creation Updating and Scoping</h1>
+    
+    <h2>4.2. let keyword variable </h2>
+    
+    <!-- internal JavaScript - body section -->
+    <script>
+    /* Write all JavaScript code here */
+    
+    </script>
+    
+  </body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>6_3_es6_ts_spread_operator</title>
+
+  <!-- internal style -->
+  <style>
+    /* css selector: { property:value; } */
+    body {
+      font-family: arial;
+    }
+  </style>
+
+  <!-- include babel library to transpile/convert ES6 code to ES5 -->
+  <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+
+  <!-- internal JavaScript - head section -->
+  <script type="text/babel">
+      // Write all JavaScript code here
+
+      let arrLanguages = ['C','Java','Python','JavaScript'];
+      let arrOperating = ['Windows', 'MacOs', 'Linux', 'Ubuntu'];
+
+      // include array in another but as a sub-array
+      var arrTechnologies1 = ['Ruby', arrLanguages, arrOperating,'C++'];
+      console.log(arrTechnologies1);
+
+      // console.log('// ------------------------------');
+
+      // use spread operator to call/use/passes array elements
+      var arrTechnologies2 = ['Ruby',...arrLanguages,...arrOperating,'C++'];
+      console.log(arrTechnologies2);
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <h1>6. Extended Parameter Handling</h1>
+  
+    <h2>6.3. Spread operator</h2>
+  
+    <!-- internal JavaScript - body section -->
+    <script>
+      /* Write all JavaScript code here */
+  
+    </script>
+  
+  </body>
+
+</html>
