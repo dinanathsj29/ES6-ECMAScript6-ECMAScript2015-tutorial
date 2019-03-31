@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>5_1_es6_ts_fat_arrow_function</title>
+
+    <!-- internal style -->
+    <style>
+      /* css selector: { property:value; } */
+      body {
+        font-family: arial;
+      }
+    </style>
+
+    <!-- include babel library to transpile/convert ES6 code to ES5 -->
+    <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+    
+    <!-- internal JavaScript - head section -->
+    <script type="text/babel">
+      // Write all JavaScript code here
+
+      // old function definition
+      var showStudentsInfo1 = function (student) {
+        console.log('Student Details: ' + student);
+      }
+
+      showStudentsInfo1(['Dinanath', 'Mumbai','Front End Developer']);
+
+      // console.log('// ------------------------------');
+
+      // new method - fat arrow
+      var showStudentsInfo2 = (student) => {
+        console.log('Fat Arrow Student Details: ' + student);
+      }
+
+      showStudentsInfo2(['Dino', 'Bengalore','Back End Developer']);
+
+      // console.log('// ------------------------------');
+
+      var showStudentsInfo3 = student => console.log('Fat Arrow short method Student Details: ' + student);
+
+      showStudentsInfo3(['Ambar', 'Hydrabad','Full Stack Developer']);
+
+    </script>
+    
+  </head>
+
+  <body>
+
+    <h1>5. Function Improvements-objects</h1>
+    
+    <h2>5.1. Arrow functions (Fat Arrow function)</h2>
+    
+    <!-- internal JavaScript - body section -->
+    <script>
+    /* Write all JavaScript code here */
+    
+    </script>
+    
+  </body>
+
+</html>
