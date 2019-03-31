@@ -18,8 +18,10 @@ Topics include
 4. [New Variables—Creation Updating and Scoping](#section-4-new-variables-creation-updating-and-scoping)
 5. [Function Improvements objects](#section-5-function-improvements-objects)
 6. [Extended Parameter Handling](#section-6-extended-parameter-handling)
-7. [Template Strings Literals](#section-7-template-strings-literals)
-8. [Destructuring Assignment](#section-8-destructuring-assignment)
+7. [Enhancing object literals](#Section-7-enhancing-object-literals)
+8. [Template Strings Literals](#section-8-template-strings-literals)
+9. [Destructuring Assignment](#section-9-destructuring-assignment)
+
 9. [Iterables and Iterators Looping](#section-9-iterables-and-iterators-looping)
 10. [Classes](#section-10-classes)
 11. [Generators](#section-11-generators)
@@ -417,7 +419,7 @@ greetUser1('Dinanath2');
 - We use the let keyword to `create block scoping` in JavaScript in locations where we weren't able to do so before 
 - `Let keyword block scope` - let keyword variables exist only inside `block { }`scope
 - let keyword variables cannot be used before declaration (`never hoisted`)
-- let keyword variables `cannot be re-declared`
+- let keyword variables `can not be re-declared`
 
 > **Syntax & Example**: `Typescript 4_2_es6_ts_let.ts`
 ```typescript
@@ -762,31 +764,497 @@ console.log(Person.firstName);
 - Let variables are `mutable, can be changed or re-assigned`
 
 
-Section 5. Function Improvements objects
+Section 5. Function Improvements-objects
 =====================
+5.1. Arrow functions (Fat Arrow function)
+---------------------
+- `Arrow functions` also called `fat arrow functions`, have an abbreviated syntax for working with functions with the equal sign and the greater than symbol
+- `fat arrow functions` provide syntactical sugar so that we can shorten old function definition, make it more readable and compact
+- Fat Arrow function `provides short/concise syntax/way` of writing functions, uses fewer lines of code
+- Fat Arrow function also `simplified behavior of this` keyword in JavaScript
 
+> **Syntax & Example**: `Typescript 5_1_es6_ts_fat_arrow_function.ts`
+```typescript
+// export {};
+
+//normal function
+var getNormalValue = function () {
+    return 100;
+}
+console.log('normal function return', getNormalValue());
+
+// ------------------------------
+
+//arrow function
+const getArrowValue1 = () => {
+    return 200;
+}
+console.log('fat arrow function return', getArrowValue1());
+
+// ------------------------------
+
+//arrow function - single line return
+var getArrowValue2 = () => 500;
+console.log('fat arrow function single line return', getArrowValue2());
+
+// ------------------------------
+
+//arrow function - parameter
+var getArrowValue3 = (num: number) => num;
+console.log('fat arrow function parameter', getArrowValue3(10));
+
+// ------------------------------
+
+console.log('type of getArrowValue2', typeof getArrowValue2);
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 5_1_es6_ts_fat_arrow_function.js`
+```javascript
+"use strict";
+// export {};
+//normal function
+var getNormalValue = function () {
+    return 100;
+};
+console.log('normal function return', getNormalValue());
+// ------------------------------
+//arrow function
+var getArrowValue1 = function () {
+    return 200;
+};
+console.log('fat arrow function return', getArrowValue1());
+// ------------------------------
+//arrow function - single line return
+var getArrowValue2 = function () { return 500; };
+console.log('fat arrow function single line return', getArrowValue2());
+// ------------------------------
+//arrow function - parameter
+var getArrowValue3 = function (num) { return num; };
+console.log('fat arrow function parameter', getArrowValue3(10));
+// ------------------------------
+console.log('type of getArrowValue2', typeof getArrowValue2);
+//# sourceMappingURL=5_1_es6_ts_fat_arrow_function.js.map
+```
+
+5.2. Fat Arrow functions and `this` scope / lexical `this`
+---------------------
+- Fat arrow functions can help us deal with the scope of the `this` keyword in our JavaScript code
+- In `normal JavaScript function context creates their own scope this`
+- Fat arrow function => `does not create own scope` for 'this', but refers to its `parents this`
+
+> **Syntax & Example**: `Typescript 5_2_es6_ts_fat_arrow_function_this_scope.ts`
+```typescript
+// export {};
+
+var EmployeeObj1 = {
+    empId1: 111,
+    greetings1: function () {
+        console.log('this.empId1 : ' + this.empId1);
+    }
+}
+
+EmployeeObj1.greetings1(); // empId1: 111,
+
+// ------------------------------
+
+//error - internal function 'this' scope created
+
+/* var EmployeeObj2 = {
+    empId2: 222,
+    greetings2: function () {
+        setTimeout(function () {
+            console.log('this.empId2 : ' + this.empId2);
+        }, 1000)
+    }
+}
+
+EmployeeObj2.greetings2(); */
+
+// ------------------------------
+
+//internal function 'this' scope created, work around with 'self'
+
+var EmployeeObj3 = {
+    empId3: 333,
+    greetings3: function () {
+        var self = this;
+        setTimeout(function () {
+            console.log('self.empId3 : ' + self.empId3);
+        }, 1000)
+    }
+}
+
+EmployeeObj3.greetings3(); // empId3: 333,
+
+// ------------------------------
+
+//best work around with fat arrow function =>
+
+var EmployeeObj4 = {
+    empId4: 444,
+    greetings4: function () {
+        setTimeout(() => {
+            console.log('this.empId4 : ' + this.empId4);
+        }, 1000)
+    }
+}
+
+EmployeeObj4.greetings4(); // empId4: 444,
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 5_2_es6_ts_fat_arrow_function_this_scope.js`
+```javascript
+"use strict";
+// export {};
+var EmployeeObj1 = {
+    empId1: 111,
+    greetings1: function () {
+        console.log('this.empId1 : ' + this.empId1);
+    }
+};
+EmployeeObj1.greetings1(); // empId1: 111,
+// ------------------------------
+//error - internal function 'this' scope created
+/* var EmployeeObj2 = {
+    empId2: 222,
+    greetings2: function () {
+        setTimeout(function () {
+            console.log('this.empId2 : ' + this.empId2);
+        }, 1000)
+    }
+}
+
+EmployeeObj2.greetings2(); */
+// ------------------------------
+//internal function 'this' scope created, work around with 'self'
+var EmployeeObj3 = {
+    empId3: 333,
+    greetings3: function () {
+        var self = this;
+        setTimeout(function () {
+            console.log('self.empId3 : ' + self.empId3);
+        }, 1000);
+    }
+};
+EmployeeObj3.greetings3(); // empId3: 333,
+// ------------------------------
+//best work around with fat arrow function =>
+var EmployeeObj4 = {
+    empId4: 444,
+    greetings4: function () {
+        var _this = this;
+        setTimeout(function () {
+            console.log('this.empId4 : ' + _this.empId4);
+        }, 1000);
+    }
+};
+EmployeeObj4.greetings4(); // empId4: 444,
+//# sourceMappingURL=5_2_es6_ts_fat_arrow_function_this_scope.js.map
+```
 
 Section 6. Extended Parameter Handling
 =====================
+6.1. Default function parameters
+---------------------
+- ES6 allows function parameters to have/specify simple and intuitive default values
+- It simply means that if no arguments are provided to function call these default parameters values will be used
+- In ES6 we can set/enter/assign `default value to Parameters`
+- If no value passed in functional call than default values/Parameters taken into consideration
+- whille checking `arguments.length`, default value is not considered/counted, `only actual passed arguments counted`
+
+> **Syntax & Example**: `Typescript 6_1_es6_ts_parameters_default_value.ts`
+```typescript
+// export {};
+
+//normal function call 
+/* let showValue1 = function (value1) {
+  console.log(value1);
+}
+showValue1(); //undefined - as no parameters passed 
+*/
+// ------------------------------
+
+let showValue2 = function (value2 = 20) {
+  console.log(value2);
+  console.log(arguments.length);
+  console.log('// ------------------------------');
+}
+
+showValue2(); // 20
+showValue2(200); // 200
+
+// ------------------------------
+
+let showValue3 = function (value3 = 20, value4 = value3 + 10) {
+  console.log(value3);
+  console.log(value4);
+  console.log(value3, value4);
+  console.log(arguments.length);
+  console.log('// ------------------------------');
+}
+
+showValue3(); // value3=20, value4=30, value3 20, value4 30, arguments.length 0
+console.log('// 1 ------------------------------');
+
+showValue3(200);
+console.log('// 2 ------------------------------');
+
+showValue3(200, 300);
+console.log('// 3 ------------------------------');
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 6_1_es6_ts_parameters_default_value.js`
+```javascript
+"use strict";
+// export {};
+//normal function call 
+/* let showValue1 = function (value1) {
+  console.log(value1);
+}
+showValue1(); //undefined - as no parameters passed
+*/
+// ------------------------------
+var showValue2 = function (value2) {
+    if (value2 === void 0) { value2 = 20; }
+    console.log(value2);
+    console.log(arguments.length);
+    console.log('// ------------------------------');
+};
+showValue2(); // 20
+showValue2(200); // 200
+// ------------------------------
+var showValue3 = function (value3, value4) {
+    if (value3 === void 0) { value3 = 20; }
+    if (value4 === void 0) { value4 = value3 + 10; }
+    console.log(value3);
+    console.log(value4);
+    console.log(value3, value4);
+    console.log(arguments.length);
+    console.log('// ------------------------------');
+};
+showValue3(); // value3=20, value4=30, value3 20, value4 30, arguments.length 0
+console.log('// 1 ------------------------------');
+showValue3(200);
+console.log('// 2 ------------------------------');
+showValue3(200, 300);
+console.log('// 3 ------------------------------');
+//# sourceMappingURL=6_1_es6_ts_parameters_default_value.js.map
+```
+
+6.2. Rest parameter operator
+---------------------
+- rest parameter represents `indefinite number of arguments` as an array
+- `...arrayName - is used to convert the individual item into an array`
+- Rest parameters don’t restrict the number of values that you can pass to a function
+- The values passed must all be of the same type (`multiple arguments of the same type`)
+- A rest parameter is specified by prefixing a named parameter with `rest operator (...) i.e. three dots`
+- Rest operator is used as function Parameter/argument
+
+> **Syntax & Example**: `Typescript 6_2_es6_ts_parameters_rest_operator.ts`
+```typescript
+// export {};
+
+// es5 normal function
+let displayColors = function () {
+    for (let i in arguments) {
+        console.log('arguments color list:', arguments[i]);
+    }
+}
+
+displayColors('cyan');
+console.log('------------------------------');
+
+displayColors('cyan', 'magenta');
+console.log('------------------------------');
+
+displayColors('cyan', 'magenta', 'yellow');
+console.log('------------------------------');
+
+console.log('// ------------------------------');
+
+// es6 rest operator
+let showColors = function (...colorsList) {
+    console.log('colorsList rest operator:', colorsList);
+    console.log('arguments.length:', arguments.length);
+    for (let i in colorsList) {
+        console.log('colorsList rest operator array loop:', colorsList[i]);
+    }
+    console.log('// ');
+}
+
+showColors('red');
+showColors('red', 'green');
+showColors('red', 'green', 'blue');
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 6_2_es6_ts_parameters_rest_operator.js`
+```javascript
+"use strict";
+// export {};
+// es5 normal function
+var displayColors = function () {
+    for (var i_1 in arguments) {
+        console.log('arguments color list:', arguments[i_1]);
+    }
+};
+displayColors('cyan');
+console.log('------------------------------');
+displayColors('cyan', 'magenta');
+console.log('------------------------------');
+displayColors('cyan', 'magenta', 'yellow');
+console.log('------------------------------');
+console.log('// ------------------------------');
+// es6 rest operator
+var showColors = function () {
+    var colorsList = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        colorsList[_i] = arguments[_i];
+    }
+    console.log('colorsList rest operator:', colorsList);
+    console.log('arguments.length:', arguments.length);
+    for (var i_2 in colorsList) {
+        console.log('colorsList rest operator array loop:', colorsList[i_2]);
+    }
+    console.log('// ');
+};
+showColors('red');
+showColors('red', 'green');
+showColors('red', 'green', 'blue');
+//# sourceMappingURL=6_2_es6_ts_parameters_rest_operator.js.map
+```
+
+6.3. Spread operator
+---------------------
+- Spread Operator is opposite to Rest Operator
+- The spread operator with the help of 3 dots (...) can turn elements of an array into arguments of a function call, or into elements of an array literal
+- ...arrayName - takes an array and `split/convert an array into individual item/string`
+- Rest operator is used to `combine`, Spread operator is to `split`
+- Spread Operator is used while function called
+
+> **Syntax & Example**: `Typescript 6_3_es6_ts_spread_operator.ts`
+```typescript
+// export {};
+
+let colorsList = ['red', 'green', 'blue', 'black'];
+
+let showColors = function (...colors) {
+    console.log('spread operator:', colors);
+    console.log('arguments.length', arguments.length);
+    for (let color in colors) {
+        console.log('colorsList:', colors[color]);
+    }
+}
+
+showColors(...colorsList);
+console.log('Elements in the colors List:', ...colorsList);
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 6_3_es6_ts_spread_operator.js`
+```javascript
+"use strict";
+// export {};
+var colorsList = ['red', 'green', 'blue', 'black'];
+var showColors = function () {
+    var colors = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        colors[_i] = arguments[_i];
+    }
+    console.log('spread operator:', colors);
+    console.log('arguments.length', arguments.length);
+    for (var color in colors) {
+        console.log('colorsList:', colors[color]);
+    }
+};
+showColors.apply(void 0, colorsList);
+console.log.apply(console, ['Elements in the colors List'].concat(colorsList));
+//# sourceMappingURL=6_3_es6_ts_spread_operator.js.map
+```
+
+Section 7. Enhancing object literals
+=====================
+7.1. 
+---------------------
+- `repeat` is the new ES6 function/method returns new string number of times as passed in the parameter
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+
+```
 
 
-Section 7. Template Strings Literals
+Section 8. Template Strings Literals
+=====================
+### 04.03. Template String Literal
+- `` backtick and { curley brace }
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+
+```
+
+Section 9. Destructuring Assignment
+=====================
+### 05.05. Destructuring assignment
+- Destructuring Assignment gives us an easy way to extract data from arrays and objects and assign them to variables
+
+Section 9. Iterables and Iterators, Looping
 =====================
 
-Section 8. Destructuring Assignment
-=====================
+> **Syntax & Example**: `Typescript .ts`
+```typescript
 
+```
 
-Section 9. Iterables and Iterators Looping
-=====================
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+
+```
 
 Section 10. Classes
 =====================
+### 06.01. ECMAScript 6 Class syntax
+- In Object Oriented Programming languages classes have been used since long time to encourage reusability
+- Classes are the blueprint for the creation of a object
 
+### 06.02. Class Inheritance
+- one class can `inherit or extends to another parent or super class` and use its properties and methods
+- `super()` keyword refer to the parent or super class which is extended
+- `extends` keyword denotes inheritance mechanism
 
 Section 11. Generators
 =====================
-
+### 05.06. Generators
+- Generators are a new type of function that allow us to `pause functions in the middle of execution`, to be resumed later
+- Generator function can be identified by `an asterisk symbol` right before the function name or immediately following the function keyword (`function*`)
+- Function can be paused by using the new `yield` keyword
+- We need to use babel core polyfill `browser-polyfill.js` to use/execute generators function
+- generators are also used with `asynchronous external events or timers/intervals`
 
 Section 12. Sets and WeakSets
 =====================
@@ -804,11 +1272,11 @@ Section 15. Modules
 =====================
 
 
-Section 16. Whats Next Step?
+Section 16. What's Next Step?
 =====================
-This is superb! Thank you for joining me for `JavaScript ES6-ECMAScript 6-ECMAScript 2015 Features for everyone`. I hope you will start checking/testing and incorporating these features into your code right away. I hope now you have solid understanding of ES6 new features. Your next step could be looking into [ES7 standards/features](http://kangax.github.io/compat-table/es2016plus/) which is very new and not purely tested.
+This is superb! Thank you for joining me for `JavaScript ES6-ECMAScript 6-ECMAScript 2015 Features for everyone`. I hope you will start checking/testing and incorporating these features into your code right away. I hope now you have a solid understanding of ES6 new features. Your next step could be looking into [ES7 standards/features](http://kangax.github.io/compat-table/es2016plus/) which is very new and not purely tested.
 
-reference
+Reference
 ---------------------
 ### Websites
 - http://es6-features.org
