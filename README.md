@@ -21,15 +21,16 @@ Topics include
 7. [Enhancing object literals](#Section-7-enhancing-object-literals)
 8. [Template Strings Literals](#section-8-template-strings-literals)
 9. [Destructuring Assignment](#section-9-destructuring-assignment)
-
-9. [Iterables and Iterators Looping](#section-9-iterables-and-iterators-looping)
-10. [Classes](#section-10-classes)
-11. [Generators](#section-11-generators)
-12. [Sets and WeakSets](#section-12-sets-and-weaksets)
-13. [Map and Weak Map](#section-13-map-and-weak-map)
-14. [Symbols](#section-14-symbols)
-15. [Modules](#section-15-modules)
-16. [Whats Next Step?](#section-16-whats-next-step)
+10. [Loops](#section-10-loops)
+11. [Classes](#section-11-classes)
+12. [Modules](#section-12-modules)
+13. [Generators](#section-13-generators)
+14. [Sets and WeakSets](#section-14-sets-and-weaksets)
+15. [Map and Weak Map](#section-15-map-and-weak-map)
+16. [Symbols](#section-16-symbols)
+17. [Iterables and Iterators](#section-17-iterables-and-iterators)
+18. [String methods](#section-18-string-methods)
+19. [Whats Next Step?](#section-19-whats-next-step)
 
 Section 1. Course Introduction
 =====================
@@ -1179,10 +1180,480 @@ showColors.apply(void 0, colorsList);
 console.log.apply(console, ['Elements in the colors List'].concat(colorsList));
 //# sourceMappingURL=6_3_es6_ts_spread_operator.js.map
 ```
-
+                                                                            
 Section 7. Enhancing object literals
 =====================
-7.1. 
+7.1. Property shorthand notation
+---------------------
+- When propery names are similar/equivalent to variable name than ES6 provide shorthand notation for object literals
+
+> **Syntax & Example**: `Typescript 7_1_es6_ts_object_property_shorthand.ts`
+```typescript
+// export {};
+
+//old plain javascript approach
+let firstName = 'angular';
+let lastName = 'typescript';
+
+let Technology = {
+  //new property : variable
+  firstName: firstName,
+  lastName: lastName
+}
+
+console.log(Technology.firstName);
+console.log(Technology.lastName);
+console.log('// ------------------------------');
+
+// ------------------------------
+
+//ES6 approach - When property names are similar/equivalent to variable name than ES6 provides a shorthand notation for object literals
+
+let version1 = 7;
+let version2 = 3;
+
+let newTechnology = {
+  firstName,
+  lastName,
+  version1,
+  version2
+}
+console.log(newTechnology.firstName);
+console.log(newTechnology.lastName);
+console.log(newTechnology.version1);
+console.log(newTechnology.version2);
+console.log('// ------------------------------');
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 7_1_es6_ts_object_property_shorthand.js`
+```javascript
+"use strict";
+// export {};
+//old plain javascript approach
+var firstName = 'angular';
+var lastName = 'typescript';
+var Technology = {
+    //new property : variable
+    firstName: firstName,
+    lastName: lastName
+};
+console.log(Technology.firstName);
+console.log(Technology.lastName);
+console.log('// ------------------------------');
+// ------------------------------
+//ES6 approach - When propery names are similar/equivalent to variable name than ES6 provide shorthand notation for object literals
+var version1 = 7;
+var version2 = 3;
+var newTechnology = {
+    firstName: firstName,
+    lastName: lastName,
+    version1: version1,
+    version2: version2
+};
+console.log(newTechnology.firstName);
+console.log(newTechnology.lastName);
+console.log(newTechnology.version1);
+console.log(newTechnology.version2);
+console.log('// ------------------------------');
+//# sourceMappingURL=7_1_es6_ts_object_property_shorthand.js.map
+```
+
+7.2. Property names with space
+---------------------
+- In ES6 we can use property names with space like `'first name': dinanath,`
+- While referring/logging the property instead of `.DOT` notation use `square brackets ['first name']`
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+//In ES6 we can use property names with space like 'first name' 
+
+let lastName = 'last name';
+
+let Employee = {
+  'first name': 'Dinanath',
+  [lastName]:'Jayaswal'
+}
+
+console.log(Employee['first name']);
+console.log(Employee['last name']);
+console.log(Employee);
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+"use strict";
+//In ES6 we can use property names with space like 'first name' 
+var Employee = {
+    'first name': 'Dinanath',
+};
+console.log(Employee['first name']);
+//# sourceMappingURL=7_2_es6_ts_object_property_name.js.map
+```
+
+Section 8. Template Strings Literals
+=====================
+8.1. Template Literals (Template Strings)
+---------------------
+- ES6 new feature `Strings Template` offers a convenient way to work with string concatenation/interpolation
+- Template literals provide an easy and clean way to create multi-line strings and perform string interpolation
+- Intuitive expression interpolation for single-line and multi-line strings
+- Use `back-tick (grave accent)` character and `{ var name in curly brace }`, no + plus sign required
+- The best part of Template Literals (Template Strings) is we can `use 'single' "double" quotes inside`
+
+> **Syntax & Example**: `Typescript 8_1_es6_ts_template_strings_literals_interpolation.ts`
+```typescript
+// export {};
+
+//old plain javascript approach
+let user = 'Dinanath';
+let greetMessage1 = 'Welcome' + ' ' + user + ' ' + 'to ES6.';
+
+console.log(greetMessage1);
+ 
+console.log('// ------------------------------');
+
+//ES6 Template Literals (Template Strings) approach
+let greetMessage2 = `Welcome ${user} to ES6.`;
+
+console.log(greetMessage2);
+
+console.log('// ------------------------------');
+// ------------------------------
+
+//ES6 multi-line string
+let greetMessage3 = `ES6 Template Literals (Template Strings):
+                    With Template Literals (Template Strings)
+                    we can add multiple lines in string concatenation/interpolation
+`;
+
+console.log(greetMessage3);
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 8_1_es6_ts_template_strings_literals_interpolation.js`
+```javascript
+"use strict";
+// export {};
+//old plain javascript approach
+var user = 'Dinanath';
+var greetMessage1 = 'Welcome' + ' ' + user + ' ' + 'to ES6.';
+console.log(greetMessage1);
+console.log('// ------------------------------');
+//ES6 Template Literals (Template Strings) approach
+var greetMessage2 = "Welcome " + user + " to ES6.";
+console.log(greetMessage2);
+console.log('// ------------------------------');
+// ------------------------------
+//ES6 multi-line string
+var greetMessage3 = "ES6 Template Literals (Template Strings):\n                    With Template Literals (Template Strings)\n                    we can add mutiple lines in string concatenation/interpolation\n";
+console.log(greetMessage3);
+//# sourceMappingURL=8_1_es6_ts_template_strings_literals_interpolation.js.map
+```
+
+Section 9. Destructuring Assignment
+=====================
+- Destructuring Assignment gives us an easy way to extract data from arrays and objects and assign them to variables
+- An expression/ES6 shorter syntax that makes it easy to extract values from arrays, or properties from objects, into distinct variables
+
+9.1. Destructuring Array
+---------------------
+
+> **Syntax & Example**: `Typescript 9_1_es6_ts_destructuring_array.ts`
+```typescript
+// export {};
+
+//old plain javascript approach
+let arrEmployee = ['Dinanath', 'Jayaswal', 'Male', 35, true];
+console.log(arrEmployee[0]);
+console.log(arrEmployee[1]);
+
+console.log('// ------------------------------');
+
+//ES6 Destructuring approach
+//assign a meaningful name to each positions value
+let [first, second, third, fourth, fifth] = arrEmployee;
+
+let [firstName, lastName, gender, age, isSenior] = arrEmployee;
+
+console.log(first);
+console.log(second);
+
+console.log(gender);
+console.log(age);
+
+console.log('// ------------------------------');
+
+let [fn, ln, , , senior] = arrEmployee
+
+console.log(fn);
+console.log(senior);
+
+// ------------------------------
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 9_1_es6_ts_destructuring_array.js`
+```javascript
+"use strict";
+// export {};
+//old plain javascript approach
+var arrEmployee = ['Dinanath', 'Jayaswal', 'Male', 35, true];
+console.log(arrEmployee[0]);
+console.log(arrEmployee[1]);
+console.log('// ------------------------------');
+//ES6 Destructuring approach
+//assign a meaningful name to each positions value
+var first = arrEmployee[0], second = arrEmployee[1], third = arrEmployee[2], fourth = arrEmployee[3], fifth = arrEmployee[4];
+var firstName = arrEmployee[0], lastName = arrEmployee[1], gender = arrEmployee[2], age = arrEmployee[3], isSenior = arrEmployee[4];
+console.log(first);
+console.log(second);
+console.log(gender);
+console.log(age);
+console.log('// ------------------------------');
+var fn = arrEmployee[0], ln = arrEmployee[1], senior = arrEmployee[4];
+console.log(fn);
+console.log(senior);
+// ------------------------------
+//# sourceMappingURL=9_1_es6_ts_destructuring_array.js.map
+```
+
+9.2. Destructuring Object
+---------------------
+> **Syntax & Example**: `Typescript 9_2_es6_ts_destructuring_object.ts`
+```typescript
+// export {};
+
+//old plain javascript approach
+let objEmployee = {
+  firstName: 'Dinanath',
+  lastName: 'Jayaswal',
+  gender: 'Male',
+  age: 35,
+  isSenior: true
+}
+console.log(objEmployee.firstName);
+console.log(objEmployee.lastName);
+
+console.log('// ------------------------------');
+
+//ES6 Destructuring approach
+//assign a meaningful name to each property
+
+let { firstName, lastName, gender, age, isSenior } = objEmployee;
+
+console.log(firstName);
+console.log(lastName);
+console.log(gender);
+console.log(age);
+console.log(isSenior);
+
+console.log('// ------------------------------');
+
+// ------------------------------
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 9_2_es6_ts_destructuring_object.js`
+```javascript
+"use strict";
+// export {};
+//old plain javascript approach
+var objEmployee = {
+    firstName: 'Dinanath',
+    lastName: 'Jayaswal',
+    gender: 'Male',
+    age: 35,
+    isSenior: true
+};
+console.log(objEmployee.firstName);
+console.log(objEmployee.lastName);
+console.log('// ------------------------------');
+//ES6 Destructuring approach
+//assign a meaningful name to each property
+var firstName = objEmployee.firstName, lastName = objEmployee.lastName, gender = objEmployee.gender, age = objEmployee.age, isSenior = objEmployee.isSenior;
+console.log(firstName);
+console.log(lastName);
+console.log(gender);
+console.log(age);
+console.log(isSenior);
+console.log('// ------------------------------');
+// ------------------------------
+//# sourceMappingURL=9_2_es6_ts_destructuring_object.js.map
+```
+
+Section 10. Loops
+=====================
+10.1. The for...of Loop
+---------------------
+- `for...of` statement it is kind of for loop but used to loop over Iterables like array,string
+- When for of loop is used with string words, it will split individual letters
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+// export {};
+
+// for...of loop
+/*for(element of array/string) {
+  // Code to be executed
+} */
+
+// Iterating over an array
+let arrDays = ["Monday", "TuesDay", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+for (let day of arrDays) {
+  console.log(day);
+  document.write('<li>' + day + '</li>');
+}
+
+console.log('// ------------------------------');
+
+// Iterating over string
+let name = 'JavaScript';
+for (let letter of name) {
+  document.write(letter + ',');
+  console.log(letter + ',');
+}
+
+console.log('// ------------------------------');
+// ------------------------------
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+"use strict";
+// export {};
+// for...of loop
+/*for(element of array/string) {
+  // Code to be executed
+} */
+// Iterating over an array
+var arrDays = ["Monday", "TuesDay", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+for (var _i = 0, arrDays_1 = arrDays; _i < arrDays_1.length; _i++) {
+    var day = arrDays_1[_i];
+    console.log(day);
+    document.write('<li>' + day + '</li>');
+}
+console.log('// ------------------------------');
+// Iterating over string
+var name = 'JavaScript';
+for (var _a = 0, name_1 = name; _a < name_1.length; _a++) {
+    var letter = name_1[_a];
+    document.write(letter + ',');
+    console.log(letter + ',');
+}
+console.log('// ------------------------------');
+// ------------------------------
+//# sourceMappingURL=10_1_es6_ts_loop_for_of.js.map
+```
+
+Section 11. Classes
+=====================
+### 06.01. ECMAScript 6 Class syntax
+- In Object Oriented Programming languages classes have been used since long time to encourage reusability
+- Classes are the blueprint for the creation of a object
+- Classes are similar to function but does not hoisted
+
+### 06.02. Class Inheritance
+- one class can `inherit or extends to another parent or super class` and use its properties and methods
+- `super()` keyword refer to the parent or super class which is extended
+- `extends` keyword denotes inheritance mechanism
+
+Section 12. Modules
+=====================
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+
+```
+
+Section 13. Generators
+=====================
+### 05.06. Generators
+- Generators are a new type of function that allow us to `pause functions in the middle of execution`, to be resumed later
+- Generator function can be identified by `an asterisk symbol` right before the function name or immediately following the function keyword (`function*`)
+- Function can be paused by using the new `yield` keyword
+- We need to use babel core polyfill `browser-polyfill.js` to use/execute generators function
+- generators are also used with `asynchronous external events or timers/intervals`
+
+Section 14. Sets and WeakSets
+=====================
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+
+```
+
+Section 15. Map and Weak Map
+=====================
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+
+```
+
+Section 16. Symbols
+=====================
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+
+```
+
+Section 17. Iterables and Iterators
+=====================
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+
+```
+
+Section 18. String methods
+=====================
+18.1. Repeat
 ---------------------
 - `repeat` is the new ES6 function/method returns new string number of times as passed in the parameter
 
@@ -1198,81 +1669,7 @@ Section 7. Enhancing object literals
 
 ```
 
-
-Section 8. Template Strings Literals
-=====================
-### 04.03. Template String Literal
-- `` backtick and { curley brace }
-
-> **Syntax & Example**: `Typescript .ts`
-```typescript
-
-```
-
-<hr />
-
-> **Syntax & Example**: `JavaScript .js`
-```javascript
-
-```
-
-Section 9. Destructuring Assignment
-=====================
-### 05.05. Destructuring assignment
-- Destructuring Assignment gives us an easy way to extract data from arrays and objects and assign them to variables
-
-Section 9. Iterables and Iterators, Looping
-=====================
-
-> **Syntax & Example**: `Typescript .ts`
-```typescript
-
-```
-
-<hr />
-
-> **Syntax & Example**: `JavaScript .js`
-```javascript
-
-```
-
-Section 10. Classes
-=====================
-### 06.01. ECMAScript 6 Class syntax
-- In Object Oriented Programming languages classes have been used since long time to encourage reusability
-- Classes are the blueprint for the creation of a object
-
-### 06.02. Class Inheritance
-- one class can `inherit or extends to another parent or super class` and use its properties and methods
-- `super()` keyword refer to the parent or super class which is extended
-- `extends` keyword denotes inheritance mechanism
-
-Section 11. Generators
-=====================
-### 05.06. Generators
-- Generators are a new type of function that allow us to `pause functions in the middle of execution`, to be resumed later
-- Generator function can be identified by `an asterisk symbol` right before the function name or immediately following the function keyword (`function*`)
-- Function can be paused by using the new `yield` keyword
-- We need to use babel core polyfill `browser-polyfill.js` to use/execute generators function
-- generators are also used with `asynchronous external events or timers/intervals`
-
-Section 12. Sets and WeakSets
-=====================
-
-
-Section 13. Map and Weak Map
-=====================
-
-
-Section 14. Symbols
-=====================
-
-
-Section 15. Modules
-=====================
-
-
-Section 16. What's Next Step?
+Section 19. What's Next Step?
 =====================
 This is superb! Thank you for joining me for `JavaScript ES6-ECMAScript 6-ECMAScript 2015 Features for everyone`. I hope you will start checking/testing and incorporating these features into your code right away. I hope now you have a solid understanding of ES6 new features. Your next step could be looking into [ES7 standards/features](http://kangax.github.io/compat-table/es2016plus/) which is very new and not purely tested.
 
