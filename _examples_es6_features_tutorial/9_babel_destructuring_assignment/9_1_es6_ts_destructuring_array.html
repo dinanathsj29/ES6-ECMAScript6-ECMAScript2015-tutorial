@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>9_1_es6_ts_destructuring_array</title>
+
+    <!-- internal style -->
+    <style>
+      /* css selector: { property:value; } */
+      body {
+        font-family: arial;
+      }
+    </style>
+
+    <!-- include babel library to transpile/convert ES6 code to ES5 -->
+    <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+
+    <!-- internal JavaScript - head section -->
+    <script type="text/babel">
+      // Write all JavaScript code here
+
+      // old function definition
+      var arrFrontEndTechnologies = ['HTML5','CSS3','JavaScript','jQuery','Angular','Bootstrap','SASS'];
+      console.log(arrFrontEndTechnologies[0]);
+      console.log(arrFrontEndTechnologies[1]);
+
+      // console.log('// ------------------------------');
+
+      // destructruing assignment
+      var arrBackEndTechnologies1 = ['Node','PHP','Java','ASP','JSP','Ruby'];
+      var [first, second] = arrBackEndTechnologies1;
+      console.log(first, second);
+      
+      var [,,third,fourth] = arrBackEndTechnologies1;
+      console.log(third,fourth);
+      
+    </script>
+    
+  </head>
+
+  <body>
+
+    <h1>Section 9. Destructuring Assignment</h1>
+
+    <h2>9.1. Destructuring Array</h2>
+
+    <!-- internal JavaScript - body section -->
+    <script>
+      /* Write all JavaScript code here */
+
+    </script>
+
+  </body>
+
+</html>

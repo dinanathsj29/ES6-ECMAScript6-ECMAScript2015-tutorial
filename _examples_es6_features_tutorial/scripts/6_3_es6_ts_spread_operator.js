@@ -13,5 +13,5 @@ var showColors = function () {
     }
 };
 showColors.apply(void 0, colorsList);
-console.log.apply(console, ['Elements in the colors List'].concat(colorsList));
+console.log.apply(console, ['Elements in the colors List:'].concat(colorsList));
 //# sourceMappingURL=6_3_es6_ts_spread_operator.js.map
