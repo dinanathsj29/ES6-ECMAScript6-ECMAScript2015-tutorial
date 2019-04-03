@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11_2_es6_ts_class_body_methods</title>
+
+    <!-- internal style -->
+    <style>
+      /* css selector: { property:value; } */
+      body {
+        font-family: arial;
+      }
+    </style>
+
+    <!-- include babel library to transpile/convert ES6 code to ES5 -->
+    <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+    
+    <!-- internal JavaScript - head section -->
+    <script type="text/babel">
+      // Write all JavaScript code here
+
+      // ES6 class
+      class Human {
+        
+        // constructor
+        constructor(_name, _age, _designation, _salary) {
+          this.name = _name;
+          this.age = _age;
+          this.designation = _designation;
+          this.salary = _salary;
+        }
+
+        // protytype method
+        describeHuman() {
+          console.log(`I am ${this.name} working as a ${this.designation} earning Rs. ${this.salary}`);
+        }
+      }
+      
+      // create different instance of Human objects
+      var Dinanath = new Human('Dinanath', 35, 'Front End Developer', 50000);
+      Dinanath.describeHuman();
+      
+    </script>
+    
+  </head>
+
+  <body>
+
+    <h1>11. Classes</h1>
+
+    <h2>11.1. Class Body and Methods</h2>
+
+    <!-- internal JavaScript - body section -->
+    <script>
+      /* Write all JavaScript code here */
+
+    </script>
+
+  </body>
+
+</html>
