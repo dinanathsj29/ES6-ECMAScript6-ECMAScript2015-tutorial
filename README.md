@@ -1557,15 +1557,282 @@ console.log('// ------------------------------');
 
 Section 11. Classes
 =====================
-### 06.01. ECMAScript 6 Class syntax
-- In Object Oriented Programming languages classes have been used since long time to encourage reusability
-- Classes are the blueprint for the creation of a object
-- Classes are similar to function but does not hoisted
+11.1. Class syntax
+---------------------
+- ES5 and earlier, classes have never existed in JavaScript, ES6 introduced classes which looks similar to classes in other object-oriented languages, such as Java, PHP, etc.
+- In Object Oriented Programming OOPS languages classes have been used for a long time to encourage reusability
+- ES6 classes are a `syntactical sugar over the prototype-based` Object Oriented pattern
+- Classes are the `blueprint for the creation of an object `
+- Classes are `special function but do not hoisted`
 
-### 06.02. Class Inheritance
-- one class can `inherit or extends to another parent or super class` and use its properties and methods
-- `super()` keyword refer to the parent or super class which is extended
+> **Syntax & Example**: `Typescript 11_1_es6_ts_class.ts`
+```typescript
+// export {};
+
+// class can not be hoisted
+// let person2 = new Person(); // error - Uncaught TypeError: Person is not a constructor
+
+// console.log('// ------------------------------');
+
+class Person {
+
+  // method
+  greetings() {
+    console.log('inside Person greetings methods');
+  }
+
+}
+
+let person1 = new Person();
+
+console.log('typeof Person:', typeof Person);
+console.log(person1.greetings());
+
+// adding a method to a class is same like adding method to protorype object
+console.log(person1.greetings === Person.prototype.greetings)
+
+console.log('// ------------------------------');
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 11_1_es6_ts_class.js`
+```javascript
+"use strict";
+// export {};
+// class can not be hoisted
+// let person2 = new Person(); // error - Uncaught TypeError: Person is not a constructor
+// console.log('// ------------------------------');
+var Person = /** @class */ (function () {
+    function Person() {
+    }
+    // method
+    Person.prototype.greetings = function () {
+        console.log('inside Person greetings methods');
+    };
+    return Person;
+}());
+var person1 = new Person();
+console.log('typeof Person:', typeof Person);
+console.log(person1.greetings());
+// adding a method to a class is same like adding method to protorype object
+console.log(person1.greetings === Person.prototype.greetings);
+console.log('// ------------------------------');
+//# sourceMappingURL=11_1_es6_ts_class.js.map
+```
+
+11.2. Class Body and Methods
+---------------------
+- Class body is the main part with in `{ curly braces }`
+- Will learn and cover 3 types of methods:
+  1. **Constructor method**: 
+      - Constructor method is `used to create and initialize objects`
+      - In one class there will be `only one constructor method`
+      - Constructor method is heart/initialization point of class `called during object creation`
+      - Constructor method is first method to run/invoke/initialize `as soon as class instantiate`
+      - Example - `constructor() { }`
+  2. **Static method**: 
+      - `static` keyword is used to create static methods 
+      - Can be called without instantiating the class (`called directly with the help of class name`)
+      - Example - `static statiMethodName();  PersonClass.statiMethodName()`
+  3. **Prototype method**: 
+      - Can be `called with the help of new object name`
+      - Example - `person1.methodName()`
+
+> **Syntax & Example**: `Typescript 11_2_es6_ts_class_body_methods.ts`
+```typescript
+// export {};
+
+// class can not be hoisted
+// let person2 = new Person(); // error - Uncaught TypeError: Person is not a constructor
+
+// console.log('// ------------------------------');
+
+class Person {
+
+  // constructor method
+  constructor(_name) {
+    this.name = _name;
+    console.log('constructor Person Name:', this.name);
+  }
+
+  // static method 
+  static showGreetings() {
+    console.log('static method showGreetings() - Hello');
+  }
+
+  // prototype method
+  showMessage() {
+    console.log('prototype method showMessage() - Hello');
+  }
+
+}
+
+// new class object
+let Person1 = new Person('Dinanath');
+
+// invoke static method 
+Person.showGreetings();
+
+// invoke prototype method
+Person1.showMessage();
+
+console.log('// ------------------------------');
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript .js`
+```javascript
+"use strict";
+// export {};
+// class can not be hoisted
+// let person2 = new Person(); // error - Uncaught TypeError: Person is not a constructor
+// console.log('// ------------------------------');
+var Person = /** @class */ (function () {
+    // constructor method
+    function Person(_name) {
+        this.name = _name;
+        console.log('constructor Person Name:', this.name);
+    }
+    // static method 
+    Person.showGreetings = function () {
+        console.log('static method showGreetings() - Hello');
+    };
+    // prototype method
+    Person.prototype.showMessage = function () {
+        console.log('prototype method showMessage() - Hello');
+    };
+    return Person;
+}());
+// new class object
+var Person1 = new Person('Dinanath');
+// invoke static method 
+Person.showGreetings();
+// invoke prototype method
+Person1.showMessage();
+console.log('// ------------------------------');
+//# sourceMappingURL=11_2_es6_ts_class_body_methods.js.map
+```
+
+11.2. Class Inheritance
+---------------------
+- one class can `inherit or extends from another parent or super class` and use its properties and methods
+- ES6 classes make it easier to create objects, implement inheritance by using the `extends` keyword and reuse the code
+- Classes that inherit from other classes are referred to as `derived classes or child classes`
+- `super()` keyword refer to the parent or super class constructor which is extended
 - `extends` keyword denotes inheritance mechanism
+
+> **Syntax & Example**: `Typescript 11_3_es6_ts_class_inheritance.ts`
+```typescript
+// export {};
+
+class Car {
+
+  // simple constructor method
+  /* constructor() {
+    console.log('Car constructor');
+  } */
+
+  // parameterized constructor method
+  constructor(_name) {
+    console.log('Car constructor', _name);
+  }
+
+  // prototype method
+  getModelNumber() {
+    return 101;
+  }
+
+}
+
+// console.log('// ------------------------------');
+
+class TataCars extends Car {
+  constructor(_name1) {
+    super(_name1);
+    console.log('TataCars constructor', _name1);
+  }
+
+  // prototype method - If same method present in child than it overwrite/override parent method
+  /* getModelNumber() {
+    return 1001;
+  } */
+
+  // to call same method from parent use super keyword
+  getModelNumber() {
+    return super.getModelNumber();
+  }
+}
+
+// simple constructor method
+// let Nexon = new TataCars();
+
+// parameterized constructor method
+let Nexon = new TataCars('Tata Nexon');
+
+// prototype method
+console.log('Nexon.getModelNumber:', Nexon.getModelNumber());
+
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 11_3_es6_ts_class_inheritance.js`
+```javascript
+"use strict";
+// export {};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var Car = /** @class */ (function () {
+    // simple constructor method
+    /* constructor() {
+      console.log('Car constructor');
+    } */
+    // parameterized constructor method
+    function Car(_name) {
+        console.log('Car constructor', _name);
+    }
+    // prototype method
+    Car.prototype.getModelNumber = function () {
+        return 101;
+    };
+    return Car;
+}());
+// console.log('// ------------------------------');
+var TataCars = /** @class */ (function (_super) {
+    __extends(TataCars, _super);
+    function TataCars(_name1) {
+        var _this = _super.call(this, _name1) || this;
+        console.log('TataCars constructor', _name1);
+        return _this;
+    }
+    // prototype method - If same method present in child than it overwrite/override parent method
+    /* getModelNumber() {
+      return 1001;
+    } */
+    // to call same method from parent use super keyword
+    TataCars.prototype.getModelNumber = function () {
+        return _super.prototype.getModelNumber.call(this);
+    };
+    return TataCars;
+}(Car));
+// simple constructor method
+// let Nexon = new TataCars();
+// parameterized constructor method
+var Nexon = new TataCars('Tata Nexon');
+// prototype method
+console.log('Nexon.getModelNumber:', Nexon.getModelNumber());
+//# sourceMappingURL=11_3_es6_ts_class_inheritance.js.map
+```
 
 Section 12. Modules
 =====================
