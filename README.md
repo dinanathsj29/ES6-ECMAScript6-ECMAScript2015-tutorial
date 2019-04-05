@@ -1836,7 +1836,106 @@ console.log('Nexon.getModelNumber:', Nexon.getModelNumber());
 
 Section 12. Modules
 =====================
+- `Module divide section of code/program` (Like in the Book we have different Chapters and Sections, in Store we have different Sections of Items, etc)
+- Code/Programm - needs separation of concern
+- The module helps developers to easily organize, navigate/find different chunks of code
+- We can `Export and Import functions/classes from different Modules`
+- There are mainly two types of export:
+  1. Named Export
+  2. Default Export
 
+12.1. Named Export
+---------------------
+- ES6 introduces file based module, in which each module is represented by a separate .js file
+- We can use the `export or import statement` in a module to `export or import variables, functions, classes or any other entity` to/from other modules or files
+- We Exports/Exporting variables and functions so that it can be used in/by other modules
+- `Export` keyword makes variables/functions/classes ready to be used in other modules
+- `Import` keyword makes variables/functions/classes ready to be used/access in current modules
+
+> Let's create a module i.e. a TypeScript/JavaScript file named `script.ts` and place the following code in it:
+
+> **Syntax & Example**: `Typescript script.ts`
+```typescript
+export {};
+
+// define variables/functions to export
+let fName = 'Dinanath';
+const DOBY = 1980;
+
+function getAge(_curYear) {
+  console.log(_curYear - DOBY);
+}
+
+// Exporting variables and functions so that it can be used in other modules
+// Export keyword makes variables/functions/classes ready to be used in other modules
+
+// export let fName;
+export { fName, DOBY, getAge };
+
+// console.log('// ------------------------------');
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript script.js`
+```javascript
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// define variables/functions to export
+var fName = 'Dinanath';
+exports.fName = fName;
+var DOBY = 1980;
+exports.DOBY = DOBY;
+function getAge(_curYear) {
+    console.log(_curYear - DOBY);
+}
+exports.getAge = getAge;
+// console.log('// ------------------------------');
+//# sourceMappingURL=12_1_es6_ts_module_script.js.map
+```
+
+<hr /> <hr />
+
+> Now create another TypeScript/JavaScript file named `app.ts` which can import named variables/functions/classes from `main.ts/main.js`:
+
+> **Syntax & Example**: `Typescript app.ts`
+```typescript
+export {};
+
+// Import keyword makes variables/functions/classes ready to be used/access in current modules
+import { fName, DOBY, getAge } from './12_1_es6_ts_module_script';
+
+console.log(fName);
+alert(getAge(2019)); 
+
+// console.log('// ------------------------------');
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript app.js`
+```javascript
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// Import keyword makes variables/functions/classes ready to be used/access in current modules
+var _12_1_es6_ts_module_script_1 = require("./12_1_es6_ts_module_script");
+console.log(_12_1_es6_ts_module_script_1.fName);
+alert(_12_1_es6_ts_module_script_1.getAge(2019));
+// console.log('// ------------------------------');
+//# sourceMappingURL=12_1_es6_ts_module_app.js.map
+```
+
+> Finally create a HTML file `index.html` and include `app.js` file, notice the script tag with `type="module"` attribute
+
+> **Syntax & Example**: `index.html`
+```html
+<script src="./scripts/12_modules/12_1_es6_ts_module_app.js"></script> 
+ OR
+<script src="./scripts/12_modules/12_1_es6_ts_module_app.js" type="module"></script> 
+```
+
+12.2. Default Export
+---------------------
 > **Syntax & Example**: `Typescript .ts`
 ```typescript
 
