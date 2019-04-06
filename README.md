@@ -30,7 +30,8 @@ Topics include
 16. [Symbols](#section-16-symbols)
 17. [Iterables and Iterators](#section-17-iterables-and-iterators)
 18. [String methods](#section-18-string-methods)
-19. [Whats Next Step?](#section-19-whats-next-step)
+19. [Reference](#section-19-reference)
+20. [Whats Next Step?](#section-20-whats-next-step)
 
 Section 1. Course Introduction
 =====================
@@ -1682,7 +1683,7 @@ console.log('// ------------------------------');
 
 <hr />
 
-> **Syntax & Example**: `JavaScript .js`
+> **Syntax & Example**: `JavaScript 11_2_es6_ts_class_body_methods.js`
 ```javascript
 "use strict";
 // export {};
@@ -1991,15 +1992,107 @@ console.log(_12_2_es6_ts_module_default_export_script_1.default);
 
 Section 13. Generators
 =====================
-### 05.06. Generators
-- Generators are a new type of function that allow us to `pause functions in the middle of execution`, to be resumed later
-- Generator function can be identified by `an asterisk symbol` right before the function name or immediately following the function keyword (`function*`)
-- Function can be paused by using the new `yield` keyword
+13.1. Generators
+---------------------
+- ES6/ES2015 Generators are `special types of functions which can run-paused anytime`, run some other logic/code and start again as per logic/program flow
+- Generators are a new type of function that allows us to `pause functions in the middle of execution`, to be resumed later
+- Generator function can be identified/indicated by `an asterisk symbol` right before the function name or immediately following the function keyword (`function*`)
+- Generator Function can be paused by using the new `yield` keyword
+- To call/invoke/execute Generator Function call `next()` method
+- A generator is a function that returns an iterator
+- All iterator objects have a `next()` method that returns a result object
+- The result object has two properties: 
+  - `value`, which is the next value, and 
+  - `done`, which is a boolean, initially false and later true when there are no more values to return with `next()` or no more `yields`
 - We need to use babel core polyfill `browser-polyfill.js` to use/execute generators function
 - generators are also used with `asynchronous external events or timers/intervals`
 
+> **Syntax & Example**: `Typescript 13_1_es6_ts_function_generators.ts`
+```typescript
+// export {};
+
+function *playCricket() {
+  yield 'Set Field';
+  console.log('1. yield Set Field');
+  yield 'Bowl';
+  console.log('2. yield Bowl');
+  yield 'Bat';
+  console.log('3. yield Bat');
+}
+
+// create a reference to the generator function
+
+let cricket = playCricket(); 
+console.log(cricket.next());
+console.log(cricket.next());
+console.log(cricket.next());
+console.log(cricket.next()); // done - true;
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 13_1_es6_ts_function_generators.js`
+```javascript
+"use strict";
+// export {};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+function playCricket() {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, 'Set Field'];
+            case 1:
+                _a.sent();
+                console.log('1. yield Set Field');
+                return [4 /*yield*/, 'Bowl'];
+            case 2:
+                _a.sent();
+                console.log('2. yield Bowl');
+                return [4 /*yield*/, 'Bat'];
+            case 3:
+                _a.sent();
+                console.log('3. yield Bat');
+                return [2 /*return*/];
+        }
+    });
+}
+// create a reference to generator function
+var cricket = playCricket();
+console.log(cricket.next());
+console.log(cricket.next());
+console.log(cricket.next());
+console.log(cricket.next()); // done - true;
+//# sourceMappingURL=13_1_es6_ts_function_generators.js.map
+```
+
 Section 14. Sets and WeakSets
 =====================
+- A set is list of values but no duplicates, set consists of unique values
 
 > **Syntax & Example**: `Typescript .ts`
 ```typescript
@@ -2030,6 +2123,9 @@ Section 15. Map and Weak Map
 
 Section 16. Symbols
 =====================
+- Symbol is a new primitive data type introduced in ES6/ES2015 to generate unique ids but we never get access to such ids.
+- symbol.for method is used store symbol in global symbol registry
+- once two or more symbols added/stored in symbol registry than they becomes identical/non-unique
 
 > **Syntax & Example**: `Typescript .ts`
 ```typescript
@@ -2045,6 +2141,7 @@ Section 16. Symbols
 
 Section 17. Iterables and Iterators
 =====================
+- Iterators are just objects with a specific interface designed for iteration. All iterator objects have a next() method that returns a result object. The result object has two properties: value, which is the next value, and done, which is a boolean that’s true when there are no more values to return. The iterator keeps an internal pointer to a location within a collection of values and with each call to the next() method, it returns the next appropriate value.
 
 > **Syntax & Example**: `Typescript .ts`
 ```typescript
@@ -2076,18 +2173,21 @@ Section 18. String methods
 
 ```
 
-Section 19. What's Next Step?
+Section 19. Reference
 =====================
-This is superb! Thank you for joining me for `JavaScript ES6-ECMAScript 6-ECMAScript 2015 Features for everyone`. I hope you will start checking/testing and incorporating these features into your code right away. I hope now you have a solid understanding of ES6 new features. Your next step could be looking into [ES7 standards/features](http://kangax.github.io/compat-table/es2016plus/) which is very new and not purely tested.
-
-Reference
+19.1. Websites / Blogs
 ---------------------
-### Websites
 - http://es6-features.org
 - https://www.ecma-international.org/ecma-262/6.0/
 - https://babeljs.io/docs/en/learn
 - https://www.w3schools.com/js/js_es6.asp
 
-### Books
+19.2. Books
+---------------------
 - http://exploringjs.com/es6/
 - https://leanpub.com/understandinges6/read/
+
+
+Section 20. What's Next Step?
+=====================
+This is superb! Thank you for joining me for `JavaScript ES6-ECMAScript 6-ECMAScript 2015 Features for everyone`. I hope you will start checking/testing and incorporating these features into your code right away. I hope now you have a solid understanding of ES6 new features. Your next step could be looking into [ES7 standards/features](http://kangax.github.io/compat-table/es2016plus/) which is very new and not purely tested.
