@@ -1,4 +1,5 @@
 "use strict";
+// export {};
 Object.defineProperty(exports, "__esModule", { value: true });
 // define variables/functions to export
 var fName = 'Dinanath';
