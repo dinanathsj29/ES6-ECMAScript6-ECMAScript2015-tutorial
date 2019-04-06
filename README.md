@@ -1851,12 +1851,14 @@ Section 12. Modules
 - We Exports/Exporting variables and functions so that it can be used in/by other modules
 - `Export` keyword makes variables/functions/classes ready to be used in other modules
 - `Import` keyword makes variables/functions/classes ready to be used/access in current modules
+- `Import` statement is hoisted ie moved to the top of declaration
+- Imported variables are `read-only, not changed` but `object properties can be changed`
 
 > Let's create a module i.e. a TypeScript/JavaScript file named `script.ts` and place the following code in it:
 
 > **Syntax & Example**: `Typescript script.ts`
 ```typescript
-export {};
+// export {};
 
 // define variables/functions to export
 let fName = 'Dinanath';
@@ -1880,6 +1882,7 @@ export { fName, DOBY, getAge };
 > **Syntax & Example**: `JavaScript script.js`
 ```javascript
 "use strict";
+// export {};
 Object.defineProperty(exports, "__esModule", { value: true });
 // define variables/functions to export
 var fName = 'Dinanath';
@@ -1900,7 +1903,7 @@ exports.getAge = getAge;
 
 > **Syntax & Example**: `Typescript app.ts`
 ```typescript
-export {};
+// export {};
 
 // Import keyword makes variables/functions/classes ready to be used/access in current modules
 import { fName, DOBY, getAge } from './12_1_es6_ts_module_script';
@@ -1916,6 +1919,7 @@ alert(getAge(2019));
 > **Syntax & Example**: `JavaScript app.js`
 ```javascript
 "use strict";
+// export {};
 Object.defineProperty(exports, "__esModule", { value: true });
 // Import keyword makes variables/functions/classes ready to be used/access in current modules
 var _12_1_es6_ts_module_script_1 = require("./12_1_es6_ts_module_script");
@@ -1936,16 +1940,53 @@ alert(_12_1_es6_ts_module_script_1.getAge(2019));
 
 12.2. Default Export
 ---------------------
-> **Syntax & Example**: `Typescript .ts`
-```typescript
+- Whenever a Module exports a single value or function, we can use `default` keyword
+- In the case of `Default Export-Import` while export/import `curly brace` not required
+- Also while dealing with `Default Export-Import` variable name match not mandatory in case of import
 
+> **Syntax & Example**: `Typescript 12_2_es6_ts_module_default_export_script.ts`
+```typescript
+// export {};
+
+let fName = 'Dinanath';
+export default fName;
 ```
 
 <hr />
 
-> **Syntax & Example**: `JavaScript .js`
+> **Syntax & Example**: `JavaScript 12_2_es6_ts_module_default_export_script.js`
 ```javascript
+"use strict";
+// export {};
+Object.defineProperty(exports, "__esModule", { value: true });
+var fName = 'Dinanath';
+exports.default = fName;
+//# sourceMappingURL=12_2_es6_ts_module_default_export_script.js.map
+```
 
+<hr /><hr />
+
+> **Syntax & Example**: `Typescript 12_2_es6_ts_module_default_import_app.ts`
+```typescript
+// export {};
+
+import firstName from './12_2_es6_ts_module_default_export_script';
+console.log(firstName);
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 12_2_es6_ts_module_default_import_app.js`
+```javascript
+"use strict";
+// export {};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var _12_2_es6_ts_module_default_export_script_1 = __importDefault(require("./12_2_es6_ts_module_default_export_script"));
+console.log(_12_2_es6_ts_module_default_export_script_1.default);
+//# sourceMappingURL=12_2_es6_ts_module_default_import_app.js.map
 ```
 
 Section 13. Generators
