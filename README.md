@@ -18,7 +18,7 @@ Topics include
 4. [New Variables—Creation Updating and Scoping](#section-4-new-variables-creation-updating-and-scoping)
 5. [Function Improvements objects](#section-5-function-improvements-objects)
 6. [Extended Parameter Handling](#section-6-extended-parameter-handling)
-7. [Enhancing object literals](#Section-7-enhancing-object-literals)
+7. [Enhancing object literals](#section-7-enhancing-object-literals)
 8. [Template Strings Literals](#section-8-template-strings-literals)
 9. [Destructuring Assignment](#section-9-destructuring-assignment)
 10. [Loops](#section-10-loops)
@@ -1186,7 +1186,7 @@ Section 7. Enhancing object literals
 =====================
 7.1. Property shorthand notation
 ---------------------
-- When propery names are similar/equivalent to variable name than ES6 provide shorthand notation for object literals
+- When property names are similar/equivalent to variable name than ES6 provide shorthand notation for object literals
 
 > **Syntax & Example**: `Typescript 7_1_es6_ts_object_property_shorthand.ts`
 ```typescript
@@ -2092,18 +2092,231 @@ console.log(cricket.next()); // done - true;
 
 Section 14. Sets and WeakSets
 =====================
-- A set is list of values but no duplicates, set consists of unique values
+- JavaScript only had one type of collection, represented by the `Array` type 
+- Due to the lack of other collection options, technique led to custom implementations of sets and maps using non-array objects
 
-> **Syntax & Example**: `Typescript .ts`
+14.1. Sets ES5
+---------------------
+- A Set is a list of values but no duplicates set consists of unique values
+- In array we access individual element, in Sets, we check some value is present/exists or not but we do not really access the value
+
+> **Syntax & Example**: `Typescript 14_1_es5_ts_sets.ts`
 ```typescript
+let currentSet = Object.create(null);
 
+currentSet.name = true; //1, 0
+
+// checking for existence
+if (currentSet.name) {
+
+  // do something
+  console.log('name property exists');
+  
+}
 ```
 
 <hr />
 
-> **Syntax & Example**: `JavaScript .js`
+> **Syntax & Example**: `JavaScript 14_1_es5_ts_sets.js`
 ```javascript
+"use strict";
+var currentSet = Object.create(null);
+currentSet.name = true; //1, 0
+// checking for existence
+if (currentSet.name) {
+    // do something
+    console.log('name property exists');
+}
+//# sourceMappingURL=14_1_es6_ts_sets.js.map
+```
 
+14.2. Sets ES6
+---------------------
+- ES 6 adds a Set type that is an ordered list of values without duplicates
+- Sets allow fast access to the data they contain, adding a more efficient manner of tracking discrete values
+- Following are important methods/properties used with Sets:
+  - `new Set()` - Sets are created using `new Set()` and 
+  - `add()` - items are added to a set by calling the `add()` method, 
+  - `size` - to see how many items are in a set by checking the `size` property, 
+  - `has()` - to check existence of value use `has()` method 
+  - `delete` - to delete value from set use `delete` method
+
+> **Syntax & Example**: `Typescript 14_2_es6_ts_sets.ts`
+```typescript
+// export {};
+
+// create new set
+let currentSet2 = new Set();
+
+// add items in set
+currentSet2.add("Item One");
+currentSet2.add(2);
+currentSet2.add("2");
+
+// check size / / number of items in the set
+console.log('currentSet2.size:',currentSet2.size);
+
+// duplicates will ignored not allowed - so size will not change
+/* currentSet2.add(2);
+currentSet2.add("2");
+
+console.log('currentSet2.size',currentSet2.size); */
+
+console.log('// ------------------------------');
+
+// object property based set with chaining method
+let objectBasedSet = new Set(), objKey1 = {}, objKey2 = {};
+
+objectBasedSet.add(objKey1).add(objKey2);
+
+console.log('objectBasedSet.size:',objectBasedSet.size);
+
+console.log('// ------------------------------');
+
+// set with duplicates
+
+let techSet = new Set(['JS', 'jQuery', 'Angular', 'Node', 'React', 'JS', 'jQuery']);
+console.log('techSet.size:',techSet.size);
+
+// `has` method is used to check existence.availability of value
+console.log('Angular present in set:', techSet.has('Angular'));
+
+// delete 
+techSet.delete('JS');
+console.log('delete techSet.size:',techSet.size);
+
+console.log('// ------------------------------');
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 14_2_es6_ts_sets.js`
+```javascript
+"use strict";
+// export {};
+// create new set
+var currentSet2 = new Set();
+// add items in set
+currentSet2.add("Item One");
+currentSet2.add(2);
+currentSet2.add("2");
+// check size / / number of items in the set
+console.log('currentSet2.size:', currentSet2.size);
+// duplicates will ignored not allowed - so size will not change
+/* currentSet2.add(2);
+currentSet2.add("2");
+
+console.log('currentSet2.size',currentSet2.size); */
+console.log('// ------------------------------');
+// object property based set with chaining method
+var objectBasedSet = new Set(), objKey1 = {}, objKey2 = {};
+objectBasedSet.add(objKey1).add(objKey2);
+console.log('objectBasedSet.size:', objectBasedSet.size);
+console.log('// ------------------------------');
+// set with duplicates
+var techSet = new Set(['JS', 'jQuery', 'Angular', 'Node', 'React', 'JS', 'jQuery']);
+console.log('techSet.size:', techSet.size);
+// `has` method is used to check existence.availability of value
+console.log('Angular present in set:', techSet.has('Angular'));
+// delete 
+techSet.delete('JS');
+console.log('delete techSet.size:', techSet.size);
+console.log('// ------------------------------');
+//# sourceMappingURL=14_2_es6_ts_sets.js.map
+```
+
+14.3. WeakSets ES5
+---------------------
+- The `Set` type we learned last.earlier could alternately be called a `strong set`, because of the way it stores object references
+- WeakSets stores only object references not primitive values also the object references are weak
+
+> **Syntax & Example**: `Typescript 14_3_es5_ts_weaksets.ts`
+```typescript
+// export {};
+
+let dummySet = new Set(), idKey = {};
+
+dummySet.add(idKey);
+console.log(dummySet.size); // 1
+
+console.log('// ------------------------------');
+
+// eliminate original reference
+idKey = null;
+
+console.log(dummySet.size);      // 1
+
+// get the original reference back
+idKey = [...dummySet][0];
+
+console.log('// ------------------------------');
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 14_3_es5_ts_weaksets.js`
+```javascript
+"use strict";
+// export {};
+var dummySet = new Set(), idKey = {};
+dummySet.add(idKey);
+console.log(dummySet.size); // 1
+console.log('// ------------------------------');
+// eliminate original reference
+idKey = null;
+console.log(dummySet.size); // 1
+// get the original reference back
+idKey = dummySet.slice()[0];
+console.log('// ------------------------------');
+//# sourceMappingURL=14_3_es5_ts_weaksets.js.map
+```
+
+14.4. WeakSets ES6
+---------------------
+- On the fundamentals of Garbage Collection and to avoid memory leaks `weakSets` are introduces
+- The main advantage of WeakSets over Sets is `memory is handled properly`
+
+> **Syntax & Example**: `Typescript 14_4_es6_ts_weaksets.ts`
+```typescript
+// export {};
+
+let peopleSet = new WeakSet(), nameKey = {};
+
+// add the object to the peopleSet
+peopleSet.add(nameKey);
+
+console.log(peopleSet.has(nameKey));      // true
+
+console.log('// ------------------------------');
+
+nameKey = null;
+
+console.log(peopleSet.has(nameKey));      // false
+
+console.log('// ------------------------------');
+
+peopleSet.delete(nameKey);
+
+console.log(peopleSet.has(nameKey));      // false
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 14_4_es6_ts_weaksets.js`
+```javascript
+"use strict";
+// export {};
+var peopleSet = new WeakSet(), nameKey = {};
+// add the object to the peopleSet
+peopleSet.add(nameKey);
+console.log(peopleSet.has(nameKey)); // true
+console.log('// ------------------------------');
+nameKey = null;
+console.log(peopleSet.has(nameKey)); // false
+console.log('// ------------------------------');
+peopleSet.delete(nameKey);
+console.log(peopleSet.has(nameKey)); // false
+//# sourceMappingURL=14_4_es6_ts_weaksets.js.map
 ```
 
 Section 15. Map and Weak Map
