@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>6_1_2_es6_ts_parameters_default_value</title>
+
+    <!-- internal style -->
+    <style>
+      /* css selector: { property:value; } */
+      body {
+        font-family: arial;
+      }
+    </style>
+
+    <!-- include babel library to transpile/convert ES6 code to ES5 -->
+    <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+
+    <!-- internal JavaScript - head section -->
+    <script type="text/babel">
+      // Write all JavaScript code here
+
+      // ES6 default parameter function call
+      function showHobbyActivities(activity='Music',hours=2) {
+        console.log(`Now will have fun with ${activity} for ${hours} Hours.`);
+      }
+
+      showHobbyActivities();
+      showHobbyActivities('Reading',0.5);
+      showHobbyActivities('Dancing',1);
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <h1>6. Extended Parameter Handling</h1>
+
+    <h2>6.1. Default function parameters</h2>
+
+    <!-- internal JavaScript - body section -->
+    <script>
+      /* Write all JavaScript code here */
+
+    </script>
+
+  </body>
+
+</html>

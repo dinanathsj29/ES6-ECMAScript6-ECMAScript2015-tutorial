@@ -16,7 +16,7 @@ console.log('// ------------------------------');
 
 // ------------------------------
 
-//ES6 approach - When propery names are similar/equivalent to variable name than ES6 provide shorthand notation for object literals
+//ES6 approach - When property names are similar/equivalent to variable name than ES6 provide shorthand notation for object literals
 
 let version1 = 7;
 let version2 = 3;

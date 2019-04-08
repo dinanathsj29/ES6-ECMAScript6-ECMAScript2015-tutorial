@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>6_1_1_es6_ts_parameters_default_value</title>
+
+    <!-- internal style -->
+    <style>
+      /* css selector: { property:value; } */
+      body {
+        font-family: arial;
+      }
+    </style>
+
+    <!-- include babel library to transpile/convert ES6 code to ES5 -->
+    <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+
+    <!-- internal JavaScript - head section -->
+    <script type="text/babel">
+      // Write all JavaScript code here
+
+      // normal function call - parameters
+      function addNumber1(num1,num2) {
+        console.log(num1 + num2); // NaN
+        console.log(`Total is:${num1} + ${num2}`); // undefined
+      }
+
+      addNumber1(); // NaN or undefined error - as required parameter not passed
+
+      // console.log('// ------------------------------');
+      
+      // ES6 default parameter function call
+      function addNumber2(num1=5,num2=10) {
+        console.log(num1 + num2);
+        console.log(`Total is:${num1} + ${num2} = ` + (num1 + num2));
+      }
+
+      addNumber2(); // 5 + 10 = 15
+      addNumber2(20,30); // 20 + 30 = 50
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <h1>6. Extended Parameter Handling</h1>
+
+    <h2>6.1. Default function parameters</h2>
+
+    <!-- internal JavaScript - body section -->
+    <script>
+      /* Write all JavaScript code here */
+
+    </script>
+
+  </body>
+
+</html>
