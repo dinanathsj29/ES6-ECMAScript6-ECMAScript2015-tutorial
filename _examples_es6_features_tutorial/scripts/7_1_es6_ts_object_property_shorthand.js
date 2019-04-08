@@ -12,7 +12,7 @@ console.log(Technology.firstName);
 console.log(Technology.lastName);
 console.log('// ------------------------------');
 // ------------------------------
-//ES6 approach - When propery names are similar/equivalent to variable name than ES6 provide shorthand notation for object literals
+//ES6 approach - When property names are similar/equivalent to variable name than ES6 provide shorthand notation for object literals
 var version1 = 7;
 var version2 = 3;
 var newTechnology = {
