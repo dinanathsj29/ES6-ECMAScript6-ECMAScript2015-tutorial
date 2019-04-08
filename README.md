@@ -108,7 +108,7 @@ Section 3. Transpiling ES6-ECMAScript 6
 
 3.2. Babel.js (https://babeljs.io/) - working with Babel
 ---------------------
-- Babel is one of the most popular tools for trasnpiling ES6 code and gets ES5 code 
+- Babel is one of the most popular tools for transpiling ES6 code and gets ES5 code 
 - Babel was `created by Sebastian McKenzie` an Australian developer at Facebook
 - `ReactJS the UI library created by Facebook uses Babel` as a preferred tool for transpiling the ES6 features back into ES5 JavaScript
 
@@ -172,8 +172,8 @@ Alternatively, install babel with nodejs ie npm package and use respective comma
 ---------------------
 - Download and Install node (node comes with npm) (website: https://nodejs.org/en)
 - After installation check version of node and npm by command: `node -v / npm -v`
-- Install a `Text Editor` to write a code like `VS code`, `Sublime Text`, `Adobe Brackets` or any one of your choice
-- Install a `transpiler` like `typescript` globally to transpile/convert a code into plain JavaScript, by using the command: `npm install typescript -g`
+- Install a `Text Editor` to write code like `VS code`, `Sublime Text`, `Adobe Brackets` or any one of your choice
+- Install a `transpiler` like `typescript` globally to transpile/convert code into plain JavaScript, by using the command: `npm install typescript -g`
 - In VS Code editor configure typescript: Press `CTRL+SHIFT+B` -> Choose Task Runner - > Typescript Watch Mode -> it will create `task.json`
 
 <p>
@@ -1244,7 +1244,7 @@ console.log(Technology.firstName);
 console.log(Technology.lastName);
 console.log('// ------------------------------');
 // ------------------------------
-//ES6 approach - When propery names are similar/equivalent to variable name than ES6 provide shorthand notation for object literals
+//ES6 approach - When property names are similar/equivalent to variable name than ES6 provide shorthand notation for object literals
 var version1 = 7;
 var version2 = 3;
 var newTechnology = {
@@ -2102,6 +2102,8 @@ Section 14. Sets and WeakSets
 
 > **Syntax & Example**: `Typescript 14_1_es5_ts_sets.ts`
 ```typescript
+// export {};
+
 let currentSet = Object.create(null);
 
 currentSet.name = true; //1, 0
@@ -2120,6 +2122,7 @@ if (currentSet.name) {
 > **Syntax & Example**: `JavaScript 14_1_es5_ts_sets.js`
 ```javascript
 "use strict";
+// export {};
 var currentSet = Object.create(null);
 currentSet.name = true; //1, 0
 // checking for existence
@@ -2136,10 +2139,10 @@ if (currentSet.name) {
 - Sets allow fast access to the data they contain, adding a more efficient manner of tracking discrete values
 - Following are important methods/properties used with Sets:
   - `new Set()` - Sets are created using `new Set()` and 
-  - `add()` - items are added to a set by calling the `add()` method, 
-  - `size` - to see how many items are in a set by checking the `size` property, 
-  - `has()` - to check existence of value use `has()` method 
-  - `delete` - to delete value from set use `delete` method
+  - `add()` - Items are added to a set by calling the `add()` method, 
+  - `size` - To see how many items are in a set by checking the `size` property, 
+  - `has()` - To check existence of value use `has()` method 
+  - `delete` - To delete value from set use `delete` method
 
 > **Syntax & Example**: `Typescript 14_2_es6_ts_sets.ts`
 ```typescript
@@ -2228,7 +2231,7 @@ console.log('// ------------------------------');
 14.3. WeakSets ES5
 ---------------------
 - The `Set` type we learned last.earlier could alternately be called a `strong set`, because of the way it stores object references
-- WeakSets stores only object references not primitive values also the object references are weak
+- WeakSets `stores only object references` not primitive values also the object references are weak
 
 > **Syntax & Example**: `Typescript 14_3_es5_ts_weaksets.ts`
 ```typescript
@@ -2275,6 +2278,7 @@ console.log('// ------------------------------');
 ---------------------
 - On the fundamentals of Garbage Collection and to avoid memory leaks `weakSets` are introduces
 - The main advantage of WeakSets over Sets is `memory is handled properly`
+- Weak sets `do not have a size` property
 
 > **Syntax & Example**: `Typescript 14_4_es6_ts_weaksets.ts`
 ```typescript
@@ -2321,17 +2325,326 @@ console.log(peopleSet.has(nameKey)); // false
 
 Section 15. Map and Weak Map
 =====================
+- A map is nothing more than a collection of key-value pair
+- A map is a collection of keys that correspond to specific values
+- Each item in a map stores two pieces of data, and values are retrieved by specifying the key to read from
+- Maps are frequently used as caches, for storing data to be quickly retrieved later
+- The only real difference between an object used as a set and an object used as a map is the value being stored
+- In array we access individual element, in Sets we check some value is present/exists or not, in Maps we actually retrieve the value
 
-> **Syntax & Example**: `Typescript .ts`
+15.1. Maps ES5
+---------------------
+> **Syntax & Example**: `Typescript 15_1_es5_ts_maps.ts`
 ```typescript
+// exports{}
 
+let currentMap = Object.create(null);
+
+currentMap.name = "Dinanath";
+
+// retrieving a value
+let nameValue = currentMap.name; 
+console.log(nameValue);
 ```
 
 <hr />
 
-> **Syntax & Example**: `JavaScript .js`
+> **Syntax & Example**: `JavaScript 15_1_es5_ts_maps.js`
 ```javascript
+"use strict";
+// exports{}
+var currentMap = Object.create(null);
+currentMap.name = "Dinanath";
+// retrieving a value
+var nameValue = currentMap.name;
+console.log(nameValue);
+//# sourceMappingURL=15_1_es5_ts_maps.js.map
+```
 
+15.2. Maps ES6
+---------------------
+- The ES6 Map type is an `ordered list of key-value pairs`, where both the key and the value can have any type
+- Following are important methods/properties used with Maps:
+  - `new Map()` - Maps are created using `new Map()` and 
+  - `set()` - Items are added to a map by calling the `set()` method, 
+  - `get()` - Items are retrieved by calling the `set()` method, 
+  - `size` - To see/know how many key, value pairs  are present in a map
+  - `has()` - To check existence of value use `has()` method / to determine given key exists in the map
+  - `delete` - To delete key, value from set use `delete` method
+  - `clear()` - To removes all keys and values pairs from the map
+
+> **Syntax & Example**: `Typescript 15_2_es6_ts_maps.ts`
+```typescript
+// exports{}
+
+let bookMap = new Map();
+bookMap.set('bookTitle', 'Learn ES6');
+bookMap.set('bookYear', 2018);
+
+console.log(bookMap.get('bookTitle'));
+console.log(bookMap.get('bookYear'));
+console.log('bookMap.size:', bookMap.size);
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+
+console.log(bookMap.has('bookTitle'));
+
+bookMap.delete('bookYear');
+console.log('bookMap.size:', bookMap.size);
+
+bookMap.clear();
+console.log(bookMap.has('bookTitle'));
+console.log('bookMap.size:', bookMap.size);
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+
+let personDetailsMap = new Map(), nameKey = {}, ageKey = {};
+
+personDetailsMap.set(nameKey, 'Dinanath');
+personDetailsMap.set(ageKey, 35);
+
+console.log(personDetailsMap.get(nameKey));
+console.log(personDetailsMap.get(ageKey));
+console.log('personDetailsMap.size:',personDetailsMap.size);
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 15_2_es6_ts_maps.js`
+```javascript
+"use strict";
+// exports{}
+var bookMap = new Map();
+bookMap.set('bookTitle', 'Learn ES6');
+bookMap.set('bookYear', 2018);
+console.log(bookMap.get('bookTitle'));
+console.log(bookMap.get('bookYear'));
+console.log('bookMap.size:', bookMap.size);
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+console.log(bookMap.has('bookTitle'));
+bookMap.delete('bookYear');
+console.log('bookMap.size:', bookMap.size);
+bookMap.clear();
+console.log(bookMap.has('bookTitle'));
+console.log('bookMap.size:', bookMap.size);
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+var personDetailsMap = new Map(), nameKey = {}, ageKey = {};
+personDetailsMap.set(nameKey, 'Dinanath');
+personDetailsMap.set(ageKey, 35);
+console.log(personDetailsMap.get(nameKey));
+console.log(personDetailsMap.get(ageKey));
+console.log('personDetailsMap.size:', personDetailsMap.size);
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+//# sourceMappingURL=15_2_es6_ts_maps.js.map
+```
+
+15.3. Iterating over Maps 
+---------------------
+- By using arrays we can set/add key, value pairs to maps during initialization
+- `entries()` method is used to retrieve both keys,value pairs at a time
+
+> **Syntax & Example**: Type code in ScratchJS `Typescript 15_3_es6_ts_iterating_over_maps.ts`
+```typescript
+let placeMap = new Map([
+  ['country','Bharat'],
+  ['capital','Delhi']
+]);
+
+// Iterating only keys with for...of loop 
+for (let key of placeMap.keys()){
+  console.log('key:',key);
+}
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+
+// Iterating only values with for...of loop 
+for (let value of placeMap.values()){
+  console.log('value:',value);
+}
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+
+// Iterating over key, value both at a time
+for (let entry of placeMap.entries()) {
+  console.log(`keys: ${entry[0]} <==> values: ${entry[1]}`);
+} 
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+
+// Iterating over key, value both at a time with destructuring
+for (let [key,value] of placeMap.entries()) {
+  console.log(`keys: ${key} <==> values: ${value}`);
+} 
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 15_3_es6_ts_iterating_over_maps.js`
+```javascript
+'use strict';
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var placeMap = new Map([['country', 'Bharat'], ['capital', 'Delhi']]);
+
+// Iterating only keys with for...of loop
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+  for (var _iterator = placeMap.keys()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    var key = _step.value;
+
+    console.log('key:', key);
+  }
+} catch (err) {
+  _didIteratorError = true;
+  _iteratorError = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion && _iterator.return) {
+      _iterator.return();
+    }
+  } finally {
+    if (_didIteratorError) {
+      throw _iteratorError;
+    }
+  }
+}
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+
+// Iterating only values with for...of loop
+var _iteratorNormalCompletion2 = true;
+var _didIteratorError2 = false;
+var _iteratorError2 = undefined;
+
+try {
+  for (var _iterator2 = placeMap.values()[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+    var value = _step2.value;
+
+    console.log('value:', value);
+  }
+} catch (err) {
+  _didIteratorError2 = true;
+  _iteratorError2 = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+      _iterator2.return();
+    }
+  } finally {
+    if (_didIteratorError2) {
+      throw _iteratorError2;
+    }
+  }
+}
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+
+// Iterating over key, value both at a time
+var _iteratorNormalCompletion3 = true;
+var _didIteratorError3 = false;
+var _iteratorError3 = undefined;
+
+try {
+  for (var _iterator3 = placeMap.entries()[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+    var entry = _step3.value;
+
+    console.log('keys: ' + entry[0] + ' <==> values: ' + entry[1]);
+  }
+} catch (err) {
+  _didIteratorError3 = true;
+  _iteratorError3 = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion3 && _iterator3.return) {
+      _iterator3.return();
+    }
+  } finally {
+    if (_didIteratorError3) {
+      throw _iteratorError3;
+    }
+  }
+}
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+
+// Iterating over key, value both at a time with destructuring
+var _iteratorNormalCompletion4 = true;
+var _didIteratorError4 = false;
+var _iteratorError4 = undefined;
+
+try {
+  for (var _iterator4 = placeMap.entries()[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+    var _step4$value = _slicedToArray(_step4.value, 2);
+
+    var _key = _step4$value[0];
+    var _value = _step4$value[1];
+
+    console.log('keys: ' + _key + ' <==> values: ' + _value);
+  }
+} catch (err) {
+  _didIteratorError4 = true;
+  _iteratorError4 = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion4 && _iterator4.return) {
+      _iterator4.return();
+    }
+  } finally {
+    if (_didIteratorError4) {
+      throw _iteratorError4;
+    }
+  }
+}
+```
+
+15.4. WeakMaps ES6
+---------------------
+- Weak maps are the way to store weak object references, every key must be an object
+
+> **Syntax & Example**: Type code in ScratchJS `Typescript 15_4_es6_ts_weakmaps.ts`
+```typescript
+let placeMap = new WeakMap()
+let objKeys = {};
+
+placeMap.set(objKeys, 'Bharat');
+console.log(placeMap.get(objKeys));
+
+objKeys = null;
+console.log(placeMap.get(objKeys));
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 15_4_es6_ts_weakmaps.js`
+```javascript
+'use strict';
+
+var placeMap = new WeakMap();
+var objKeys = {};
+
+placeMap.set(objKeys, 'Bharat');
+console.log(placeMap.get(objKeys));
+
+objKeys = null;
+console.log(placeMap.get(objKeys));
 ```
 
 Section 16. Symbols
