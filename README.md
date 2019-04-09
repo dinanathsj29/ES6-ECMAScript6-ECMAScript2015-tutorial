@@ -2649,20 +2649,156 @@ console.log(placeMap.get(objKeys));
 
 Section 16. Symbols
 =====================
-- Symbol is a new primitive data type introduced in ES6/ES2015 to generate unique ids but we never get access to such ids.
-- symbol.for method is used store symbol in global symbol registry
-- once two or more symbols added/stored in symbol registry than they becomes identical/non-unique
+16.1. Symbols Introduction
+---------------------
+- `Symbol` is a `new primitive data type introduced in ES6/ES2015` to generate `unique ids` but we never get access to such ids
+- Because symbols are primitive values, calling `new Symbol()` throws an error
 
-> **Syntax & Example**: `Typescript .ts`
+> **Syntax & Example**: `Typescript 16_1_es6_ts_symbol.ts`
 ```typescript
+// exports{}
 
+// let firstSymbol = symbol();
+let firstSymbol = Symbol('First Symbol');
+console.log('typeof firstSymbol:',typeof firstSymbol);
+console.log('firstSymbol.toString:',firstSymbol.toString())
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+
+// symbol always create a unique ids
+// let symbol1 = Symbol();
+// let symbol2 = Symbol();
+
+// console.log(symbol1 === symbol2);
+
+let symbol1 = Symbol('i am symbol1');
+let symbol2 = Symbol('i am symbol2');
+
+console.log(symbol1 === symbol2);
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
 ```
 
 <hr />
 
-> **Syntax & Example**: `JavaScript .js`
+> **Syntax & Example**: `JavaScript 16_1_es6_ts_symbol.js`
 ```javascript
+"use strict";
+// exports{}
+// let firstSymbol = symbol();
+var firstSymbol = Symbol('First Symbol');
+console.log('typeof firstSymbol:', typeof firstSymbol);
+console.log('firstSymbol.toString:', firstSymbol.toString());
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+// symbol always create a unique ids
+// let symbol1 = Symbol();
+// let symbol2 = Symbol();
+// console.log(symbol1 === symbol2);
+var symbol1 = Symbol('i am symbol1');
+var symbol2 = Symbol('i am symbol2');
+console.log(symbol1 === symbol2);
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+//# sourceMappingURL=16_1_es6_ts_symbol.js.map
+```
 
+16.2. Symbols Registry
+---------------------
+- `Symbols Registry` helps to store symbol so that we can use/share it in/with other files
+- `Symbol.for()` method is used store symbol in the global symbol registry/library
+- once two or more symbols added/stored in symbol registry than they become identical/non-unique
+- The `Symbol.for()` method first searches the global symbol registry to see `if a symbol with the key "uid" exists`
+- `Symbol.keyFor()` methods retrieve description/key/uid of symbol registry
+
+> **Syntax & Example**: `Typescript 16_2_es6_ts_symbol_registry.ts`
+```typescript
+// exports{}
+
+let oneSymbol = Symbol.for('SymbolRegistry');
+let twoSymbol = Symbol.for('SymbolRegistry');
+
+console.log(oneSymbol === twoSymbol); // true - as uid/keys passed 'SymbolRegistry' is same for both
+
+console.log('key/uid:', Symbol.keyFor(oneSymbol));
+console.log('key/uid:', Symbol.keyFor(twoSymbol));
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+
+let id = Symbol('uid');
+let Employee = {
+  [id]: 101,
+}
+
+console.log(Object.getOwnPropertyNames(Employee));
+console.log(Object.getOwnPropertySymbols(Employee)); // Symbol('uid')
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 16_2_es6_ts_symbol_registry.js`
+```javascript
+"use strict";
+// exports{}
+var _a;
+var oneSymbol = Symbol.for('SymbolRegistry');
+var twoSymbol = Symbol.for('SymbolRegistry');
+console.log(oneSymbol === twoSymbol); // true - as uid/keys passed 'SymbolRegistry' is same for both
+console.log('key/uid:', Symbol.keyFor(oneSymbol));
+console.log('key/uid:', Symbol.keyFor(twoSymbol));
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+var id = Symbol('uid');
+var Employee = (_a = {},
+    _a[id] = 101,
+    _a);
+console.log(Object.getOwnPropertyNames(Employee));
+console.log(Object.getOwnPropertySymbols(Employee)); // Symbol('uid')
+//# sourceMappingURL=16_2_es6_ts_symbol_registry.js.map
+```
+
+16.3. Iterating over Symbols
+---------------------
+- ECMAScript 6 has predefined symbols called `well-known symbols` that represent common behaviors in JavaScript that were previously considered internal-only operations, 
+- There are many `built-in symbol` or `well-known symbols` in ES6, Each well-known symbol is represented by a property on the Symbol object, such as `Symbol.create`, `Symbol.match`,`Symbol.replace`,`Symbol.search`,`Symbol.iterator` and so on
+- `Symbol.iterator` is one of the built-in symbols, to run ES6 loops like `for..of`, the object must consist of `Symbol.iterator` method
+- `String & Array` have `Symbol.iterator` method, `Number & Object` does not have `Symbol.iterator`
+
+> **Syntax & Example**: `Typescript 16_3_es6_ts_symbol_iterator.ts`
+```typescript
+// exports{}
+
+let string1 = 'Dinanath';
+let array1 = ['Dinanath', 29] 
+let num1 = 29;
+let object1 = {name: 'Dinanath'};
+
+// check Symbol.iterator` method exist on which primitive data type
+console.log('string Symbol.iterator:', typeof string1[Symbol.iterator]);
+console.log('array Symbol.iterator:', typeof array1[Symbol.iterator]);
+console.log('num Symbol.iterator:', typeof num1[Symbol.iterator]);
+console.log('object Symbol.iterator:', typeof object1[Symbol.iterator]);
+```
+
+<hr />
+
+> **Syntax & Example**: `JavaScript 16_3_es6_ts_symbol_iterator.js`
+```javascript
+"use strict";
+// exports{}
+var string1 = 'Dinanath';
+var array1 = ['Dinanath', 29];
+var num1 = 29;
+var object1 = { name: 'Dinanath' };
+// check Symbol.iterator` method exist on which primitive data type
+console.log('string Symbol.iterator:', typeof string1[Symbol.iterator]);
+console.log('array Symbol.iterator:', typeof array1[Symbol.iterator]);
+console.log('num Symbol.iterator:', typeof num1[Symbol.iterator]);
+console.log('object Symbol.iterator:', typeof object1[Symbol.iterator]);
+//# sourceMappingURL=16_3_es6_ts_symbol_iterator.js.map
 ```
 
 Section 17. Iterables and Iterators
