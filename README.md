@@ -421,7 +421,7 @@ greetUser1('Dinanath2');
 - We use the let keyword to `create block scoping` in JavaScript in locations where we weren't able to do so before 
 - `Let keyword block scope` - let keyword variables exist only inside `block { }`scope
 - let keyword variables cannot be used before declaration (`never hoisted`)
-- let keyword variables `can not be re-declared`
+- let keyword variables `cannot be re-declared`
 
 > **Syntax & Example**: `Typescript 4_2_es6_ts_let.ts`
 ```typescript
@@ -2449,7 +2449,7 @@ console.log('// ------------------------------');
 15.3. Iterating over Maps 
 ---------------------
 - By using arrays we can set/add key, value pairs to maps during initialization
-- `entries()` method is used to retrieve both keys,value pairs at a time
+- `entries()` method is used to retrieve both keys, value pairs at a time
 
 > **Syntax & Example**: Type code in ScratchJS `Typescript 15_3_es6_ts_iterating_over_maps.ts`
 ```typescript
@@ -2764,7 +2764,7 @@ console.log(Object.getOwnPropertySymbols(Employee)); // Symbol('uid')
 ---------------------
 - ECMAScript 6 has predefined symbols called `well-known symbols` that represent common behaviors in JavaScript that were previously considered internal-only operations, 
 - There are many `built-in symbol` or `well-known symbols` in ES6, Each well-known symbol is represented by a property on the Symbol object, such as `Symbol.create`, `Symbol.match`,`Symbol.replace`,`Symbol.search`,`Symbol.iterator` and so on
-- `Symbol.iterator` is one of the built-in symbols, to run ES6 loops like `for..of`, the object must consist of `Symbol.iterator` method
+- `Symbol.iterator` is one of the built-in symbols, to run ES6 loops like `for...of`, the object must consist of `Symbol.iterator` method
 - `String & Array` have `Symbol.iterator` method, `Number & Object` does not have `Symbol.iterator`
 
 > **Syntax & Example**: `Typescript 16_3_es6_ts_symbol_iterator.ts`
@@ -2986,17 +2986,47 @@ Section 18. String methods
 18.1. Repeat
 ---------------------
 - `repeat` is the new ES6 function/method returns new string number of times as passed in the parameter
+- `String.prototype.repeat(times);`
 
 > **Syntax & Example**: `Typescript .ts`
 ```typescript
-
+let strText = 'Dinanath';
+console.log(strText.repeat(3));
 ```
 
-<hr />
+18.2. startsWith
+---------------------
+- `String.prototype.startsWith(searchString[, position]);`
 
-> **Syntax & Example**: `JavaScript .js`
-```javascript
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+let strText = 'Dinanath';
 
+console.log(strText.startsWith("D"));   // true
+console.log(strText.startsWith("i",1)); // true
+```
+
+18.3. endsWith
+---------------------
+- `String.prototype.endsWith(searchString[, position]);`
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+let strText = 'Dinanath';
+
+console.log(strText.endsWith("h"));       // true
+console.log(strText.endsWith("Dina",4));  // true
+```
+
+18.4. includes
+---------------------
+- `String.prototype.includes(searchString[, position]);`
+
+> **Syntax & Example**: `Typescript .ts`
+```typescript
+let strText = 'Dinanath';
+
+console.log(strText.includes("t"));   // true
 ```
 
 Section 19. Reference
@@ -3012,7 +3042,6 @@ Section 19. Reference
 ---------------------
 - http://exploringjs.com/es6/
 - https://leanpub.com/understandinges6/read/
-
 
 Section 20. What's Next Step?
 =====================
