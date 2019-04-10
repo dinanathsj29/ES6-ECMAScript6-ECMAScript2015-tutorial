@@ -2803,18 +2803,182 @@ console.log('object Symbol.iterator:', typeof object1[Symbol.iterator]);
 
 Section 17. Iterables and Iterators
 =====================
-- Iterators are just objects with a specific interface designed for iteration. All iterator objects have a next() method that returns a result object. The result object has two properties: value, which is the next value, and done, which is a boolean that’s true when there are no more values to return. The iterator keeps an internal pointer to a location within a collection of values and with each call to the next() method, it returns the next appropriate value.
+- ES6 introduced `iteration` - a new way to traverse data makes working with collections of data easier
+- `Iterators` are just objects with a specific interface designed for iteration
+- All iterator objects have a `next() method that returns a result object`
+- The result object has two properties: `value`, which is the next value, and `done`, which is a boolean that’s true when there are no more values to return
+- The iterator keeps an internal pointer to a location within a collection of values and with each call to the next() method, it returns the next appropriate value
+- `Iterable` - any object that implements a method `Symbol.iterator(), which returns `Iterator`
+- `Iterator` - any object that implements a `next()` method, to access elements in collection which returns `IResultObj`
+- `IResultObj` - Contains two properties `value` (the next value) and `done` (indicates iteration completed or not)
+- `for...of` loop uses Iterator functionality/mechanism with `next()` method to loop through an object
 
-> **Syntax & Example**: `Typescript .ts`
+17.1. Iterators
+---------------------
+
+> **Syntax & Example**: `Typescript 17_1_es6_ts_iterator.ts`
 ```typescript
+// exports{}
 
+let iterableArray = ['One', 'Two', 'Three', 'Four', 'Five']
+
+function createCustomIterator(_arr) {
+  let curCount = 0;
+  return {
+    next: function () {
+      return curCount < iterableArray.length ? { value: iterableArray[curCount++], done: false } : { value: 'iteration completed', done: true };
+    }
+  }
+}
+
+let customIterator1 = createCustomIterator(iterableArray);
+
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
 ```
 
 <hr />
 
-> **Syntax & Example**: `JavaScript .js`
+> **Syntax & Example**: `JavaScript 17_1_es6_ts_iterator.js`
 ```javascript
+"use strict";
+// exports{}
+var iterableArray = ['One', 'Two', 'Three', 'Four', 'Five'];
+function createCustomIterator(_arr) {
+    var curCount = 0;
+    return {
+        next: function () {
+            return curCount < iterableArray.length ? { value: iterableArray[curCount++], done: false } : { value: 'iteration completed', done: true };
+        }
+    };
+}
+var customIterator1 = createCustomIterator(iterableArray);
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log(customIterator1.next());
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+//# sourceMappingURL=17_1_es6_ts_iterator.js.map
+```
 
+17.2. Iterating objects
+---------------------
+- JavaScript `objects are not iterable`
+- `for...of` loop doesn't work on objects directly 
+
+> **Syntax & Example**: Type code in ScratchJS `Typescript 17_2_es6_ts_iterating_objects.ts`
+```typescript
+// exports{}
+
+let HumanObj = {
+  name: 'Dinanath',
+  age: 35,
+  country: 'India'
+}
+
+// for...of loop error - Symbol.iterator is not a function
+/* for (let info of HumanObj) {
+  console.log(info);
+} */
+
+HumanObj[Symbol.iterator] = function () {
+  let objProperties = Object.keys(HumanObj);
+  let curCount = 0;
+  let isDone = false;
+
+  let next = () => {
+    if (curCount >= objProperties.length) {
+      isDone = true;
+    }
+    return { done: isDone, value: this[objProperties[curCount++]] }
+  }
+  return { next };
+}
+
+// for...of loop with object
+for (let info of HumanObj) {
+  console.log(info);
+}
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
+```
+
+<hr />
+
+> **Syntax & Example**: Type code in ScratchJS `JavaScript 17_2_es6_ts_iterating_objects.js`
+```javascript
+'use strict';
+
+// exports{}
+
+var HumanObj = {
+  name: 'Dinanath',
+  age: 35,
+  country: 'India'
+};
+
+// for...of loop error - Symbol.iterator is not a function
+/* for (let info of HumanObj) {
+  console.log(info);
+} */
+
+HumanObj[Symbol.iterator] = function () {
+  var _this = this;
+
+  var objProperties = Object.keys(HumanObj);
+  var curCount = 0;
+  var isDone = false;
+
+  var next = function next() {
+    if (curCount >= objProperties.length) {
+      isDone = true;
+    }
+    return { done: isDone, value: _this[objProperties[curCount++]] };
+  };
+  return { next: next };
+};
+
+// for...of loop with object
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+  for (var _iterator = HumanObj[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    var info = _step.value;
+
+    console.log(info);
+  }
+} catch (err) {
+  _didIteratorError = true;
+  _iteratorError = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion && _iterator.return) {
+      _iterator.return();
+    }
+  } finally {
+    if (_didIteratorError) {
+      throw _iteratorError;
+    }
+  }
+}
+
+console.log('// ------------------------------');
+// console.log('// ------------------------------');
 ```
 
 Section 18. String methods
