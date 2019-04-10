@@ -7,8 +7,11 @@ console.log('firstSymbol.toString:', firstSymbol.toString());
 console.log('// ------------------------------');
 // console.log('// ------------------------------');
 // symbol always create a unique ids
-var symbol1 = Symbol();
-var symbol2 = Symbol();
+// let symbol1 = Symbol();
+// let symbol2 = Symbol();
+// console.log(symbol1 === symbol2);
+var symbol1 = Symbol('i am symbol1');
+var symbol2 = Symbol('i am symbol2');
 console.log(symbol1 === symbol2);
 console.log('// ------------------------------');
 // console.log('// ------------------------------');
