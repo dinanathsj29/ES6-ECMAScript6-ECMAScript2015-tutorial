@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>18_1_es6_ts_string_function_repeat</title>
+
+  <!-- internal style -->
+  <style>
+    /* css selector: { property:value; } */
+    body {
+      font-family: arial;
+    }
+  </style>
+
+  <!-- include babel library to transpile/convert ES6 code to ES5 -->
+  <script src="../assets/script/babel/babel_browser_5.8.29.min.js"></script>
+
+  <!-- internal JavaScript - head section -->
+  <script type="text/babel">
+      // Write all JavaScript code here
+
+      // old method
+      var Human = {
+        talk: function(repeatTimes) {
+          console.log(Array(repeatTimes+1).join('talk'));
+        },
+        laugh: function(repeatTimes) {
+          console.log(Array(repeatTimes+1).join('laugh'));
+        },
+        cry: function(repeatTimes) {
+          console.log(Array(repeatTimes+1).join('cry'));
+        },
+        walk: function(repeatTimes) {
+          console.log(Array(repeatTimes+1).join('walk'));
+        }
+      }
+
+      Human.talk(2);
+      Human.laugh(3);
+      Human.cry(4);
+      Human.walk(5);
+
+      // console.log('// ------------------------------');
+
+      // new method
+      var Person = {
+        talk: function(repeatTimes) {
+          console.log('talk'.repeat(repeatTimes));
+        },
+        laugh: function(repeatTimes) {
+          console.log('laugh'.repeat(repeatTimes));
+        },
+        cry: function(repeatTimes) {
+          console.log('cry'.repeat(repeatTimes));
+        },
+        walk: function(repeatTimes) {
+          console.log('walk'.repeat(repeatTimes));
+        }
+      }
+
+      Person.talk(2);
+      Person.laugh(3);
+      Person.cry(4);
+      Person.walk(5);
+
+    </script>
+
+</head>
+
+<body>
+
+  <h1>18. String methods</h1>
+
+  <h2>18.1. Repeat</h2>
+
+  <!-- internal JavaScript - body section -->
+  <script>
+    /* Write all JavaScript code here */
+
+  </script>
+
+</body>
+
+</html>
